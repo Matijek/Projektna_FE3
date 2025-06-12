@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2025.2.26)  12 JUN 2025 16:35
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2025.2.26)  12 JUN 2025 16:38
  restricted system commands enabled.
 **predstavitev.tex
 (./predstavitev.tex
@@ -388,17 +388,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 105--107
 
  []
 
-[3] [4]
-<slike/med.png, id=30, 866.23625pt x 370.38374pt>
+[3] [4] [5]
+<slike/med.png, id=35, 866.23625pt x 370.38374pt>
 File: slike/med.png Graphic file (type png)
 <use slike/med.png>
-Package luatex.def Info: slike/med.png  used on input line 237.
+Package luatex.def Info: slike/med.png  used on input line 257.
 (luatex.def)             Requested size: 390.0pt x 166.7559pt.
- [5]
 <slike/med2.png, id=36, 866.23625pt x 370.38374pt>
 File: slike/med2.png Graphic file (type png)
 <use slike/med2.png>
-Package luatex.def Info: slike/med2.png  used on input line 266.
+Package luatex.def Info: slike/med2.png  used on input line 286.
 (luatex.def)             Requested size: 390.0pt x 166.7559pt.
  [6<./slike/med.png><./slike/med2.png>] [7] (./predstavitev.aux)
  ***********
@@ -408,14 +407,14 @@ L3 programming layer <2024-02-20>
 )
 
 Here is how much of LuaTeX's memory you used:
- 3558 strings out of 476447
+ 3559 strings out of 476447
  100000,1977958 words of node,token memory allocated
  606 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 43 attribute, 53 glue_spec
 , 23 attribute_list, 1 write nodes
-   avail lists: 2:849,3:104,4:17,5:238,6:24,7:3973,8:59,9:536,10:12,11:431
- 25603 multiletter control sequences out of 65536+600000
- 46 fonts using 3136463 bytes
+   avail lists: 2:1120,3:102,4:17,5:243,6:24,7:3973,8:59,9:871,10:12,11:431
+ 25604 multiletter control sequences out of 65536+600000
+ 47 fonts using 3268151 bytes
  57i,10n,62p,318b,218s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.ot
 f></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.ot
@@ -430,7 +429,7 @@ local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loca
 l/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/
 texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/tex
 live/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on predstavitev.pdf (7 pages, 577937 bytes).
+Output written on predstavitev.pdf (7 pages, 579181 bytes).
 
 PDF statistics: 98 PDF objects out of 1000 (max. 8388607)
  59 compressed objects within 1 object stream
