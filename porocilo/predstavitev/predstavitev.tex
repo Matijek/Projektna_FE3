@@ -7,8 +7,6 @@
 \usepackage{float}
 \usepackage{biblatex} %Imports biblatex package
 \usepackage[backend=biber,style=numeric]{biblatex} % or any style you prefer
-\addbibresource{predstavitev.bib}
-
 
 \setlength{\parindent}{0pt}
 
@@ -253,7 +251,7 @@ Kar pomeni, da je specifična rotacija medu:
 [\alpha]_{med} = \frac{36 \cdot [\alpha]_{glukoza} + 41 \cdot [\alpha]_{fruktoza}}{36 + 41} = -24 \ \frac{^\circ \cdot \mathrm{dm}}{\mathrm{g} \cdot \mathrm{mL}}
 \]
 
-Glede na raziskavo~\cite{gerginova2022optical} pa naj bi bila specifična rotacija sintetičnega medu bila zaradi dodanih sladkorjev s pozitivno kiralnostjo v rangu: $7 - 89 \ \frac{^\circ \cdot \mathrm{dm}}{\mathrm{g} \cdot \mathrm{mL}}$
+Glede na raziskavo pa naj bi bila specifična rotacija sintetičnega medu bila zaradi dodanih sladkorjev s pozitivno kiralnostjo v rangu: $7 - 89 \ \frac{^\circ \cdot \mathrm{dm}}{\mathrm{g} \cdot \mathrm{mL}}$
 
 \subsection*{Meritve specifične rotacije medu}
 
@@ -323,7 +321,11 @@ Vendar vseeno sumimo, da je temu tako, saj je med$_1$ kristaliziral med tem ko m
 
 \section*{Zaključek}
 
-\bibliographystyle{plain}
-\bibliography{predstavitev}
+    \begin{thebibliography}{9}
+        \bibitem{gerginova2022optical}
+        D. Gerginova, V. Kurteva, S. Simova,
+        \textit{Optical Rotation—A Reliable Parameter for Authentication of Honey?},
+        Molecules, 27(24), 8916, 2022.
+    \end{thebibliography}
 
 \end{document}

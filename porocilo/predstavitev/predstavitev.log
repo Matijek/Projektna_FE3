@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2025.2.26)  12 JUN 2025 17:59
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2025.2.26)  12 JUN 2025 18:47
  restricted system commands enabled.
 **predstavitev.tex
 (./predstavitev.tex
@@ -590,8 +590,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.10 \addbibresource
-                  {predstavitev.bib}
+l.10 
+   
 ? 
 
 Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
@@ -602,28 +602,28 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (./predstavitev.aux)
 \openout1 = predstavitev.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 3
-7.
+5.
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
 
 (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -663,84 +663,58 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'predstavitev.bbl' found.
 
 (./predstavitev.bbl)
-Package biblatex Info: Reference section=0 on input line 37.
-Package biblatex Info: Reference segment=0 on input line 37.
+Package biblatex Info: Reference section=0 on input line 35.
+Package biblatex Info: Reference segment=0 on input line 35.
 
-Underfull \hbox (badness 10000) in paragraph at lines 42--43
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 42--43
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
 
  []
 
 <slike/enantiomer.png, id=1, 299.1175pt x 148.555pt>
 File: slike/enantiomer.png Graphic file (type png)
 <use slike/enantiomer.png>
-Package luatex.def Info: slike/enantiomer.png  used on input line 48.
+Package luatex.def Info: slike/enantiomer.png  used on input line 46.
 (luatex.def)             Requested size: 195.0pt x 96.84747pt.
 <slike/voda.png, id=2, 863.079pt x 457.71pt>
 File: slike/voda.png Graphic file (type png)
 <use slike/voda.png>
-Package luatex.def Info: slike/voda.png  used on input line 53.
+Package luatex.def Info: slike/voda.png  used on input line 51.
 (luatex.def)             Requested size: 195.0pt x 103.41331pt.
 [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}<./slike/e
 nantiomer.png><./slike/voda.png>] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 116--118
+Underfull \hbox (badness 10000) in paragraph at lines 114--116
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--118
+Underfull \hbox (badness 10000) in paragraph at lines 114--116
 
  []
 
 [3] [4] [5]
-
-LaTeX Warning: Citation 'gerginova2022optical' on page 6 undefined on input lin
-e 256.
-
-[6]
-<slike/med.png, id=38, 866.23625pt x 370.38374pt>
+<slike/med.png, id=33, 866.23625pt x 370.38374pt>
 File: slike/med.png Graphic file (type png)
 <use slike/med.png>
-Package luatex.def Info: slike/med.png  used on input line 288.
+Package luatex.def Info: slike/med.png  used on input line 286.
 (luatex.def)             Requested size: 390.0pt x 166.7559pt.
+ [6]
 <slike/med2.png, id=39, 866.23625pt x 370.38374pt>
 File: slike/med2.png Graphic file (type png)
 <use slike/med2.png>
-Package luatex.def Info: slike/med2.png  used on input line 317.
+Package luatex.def Info: slike/med2.png  used on input line 315.
 (luatex.def)             Requested size: 390.0pt x 166.7559pt.
- [7<./slike/med.png><./slike/med2.png>]
-
-! Package biblatex Error: '\bibliographystyle' invalid for 'biblatex'.
-
-See the biblatex package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.326 \bibliographystyle{plain}
-                             
-? 
-
-! LaTeX Error: Can be used only in preamble.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.327 \bibliography
-                 {predstavitev}
-? 
-[8] (./predstavitev.aux)
+ [7<./slike/med.png><./slike/med2.png>] [8] (./predstavitev.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-
 
 LaTeX Warning: There were undefined references.
 
@@ -755,33 +729,34 @@ Package logreq Info: Writing requests to 'predstavitev.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 11692 strings out of 476447
+ 11505 strings out of 476447
  125161,1977958 words of node,token memory allocated
  673 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 47 attribute, 64 glue_spec
 , 25 attribute_list, 1 write nodes
-   avail lists: 1:1,2:1066,3:104,4:22,5:321,6:23,7:5214,8:59,9:1251,10:15,11:584
+   avail lists: 1:1,2:1066,3:106,4:22,5:322,6:24,7:5214,8:59,9:1251,10:15,11:584
 
- 33598 multiletter control sequences out of 65536+600000
- 47 fonts using 3268151 bytes
- 66i,12n,78p,684b,1434s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.ot
-f></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.ot
-f></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-regular
-.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman17-regu
-lar.otf></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex1
-0.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.
-pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
-></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></
-usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/
-local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loca
-l/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/
-texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/tex
-live/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on predstavitev.pdf (8 pages, 582430 bytes).
+ 33411 multiletter control sequences out of 65536+600000
+ 48 fonts using 3399903 bytes
+ 66i,12n,78p,684b,1438s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-italic.ot
+f></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.
+otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.
+otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-regul
+ar.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman17-re
+gular.otf></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cme
+x10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi1
+2.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.p
+fb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></us
+r/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/lo
+cal/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
+l/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/t
+exlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on predstavitev.pdf (8 pages, 586130 bytes).
 
-PDF statistics: 101 PDF objects out of 1000 (max. 8388607)
- 61 compressed objects within 1 object stream
+PDF statistics: 108 PDF objects out of 1000 (max. 8388607)
+ 65 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 

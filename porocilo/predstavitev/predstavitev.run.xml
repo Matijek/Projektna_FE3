@@ -79,8 +79,5 @@
     <requires type="dynamic">
       <file>predstavitev.bcf</file>
     </requires>
-    <requires type="editable">
-      <file>predstavitev.bib</file>
-    </requires>
   </external>
 </requests>
