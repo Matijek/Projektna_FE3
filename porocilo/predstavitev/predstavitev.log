@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2025.2.26)  12 JUN 2025 17:35
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2025.2.26)  12 JUN 2025 17:59
  restricted system commands enabled.
 **predstavitev.tex
 (./predstavitev.tex
@@ -602,28 +602,28 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (./predstavitev.aux)
 \openout1 = predstavitev.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 34.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 3
-4.
+7.
 
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
 
 (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -663,61 +663,56 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'predstavitev.bbl' found.
 
 (./predstavitev.bbl)
-Package biblatex Info: Reference section=0 on input line 34.
-Package biblatex Info: Reference segment=0 on input line 34.
+Package biblatex Info: Reference section=0 on input line 37.
+Package biblatex Info: Reference segment=0 on input line 37.
 
-Underfull \hbox (badness 10000) in paragraph at lines 39--40
+Underfull \hbox (badness 10000) in paragraph at lines 42--43
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 39--40
+Underfull \hbox (badness 10000) in paragraph at lines 42--43
 
  []
 
 <slike/enantiomer.png, id=1, 299.1175pt x 148.555pt>
 File: slike/enantiomer.png Graphic file (type png)
 <use slike/enantiomer.png>
-Package luatex.def Info: slike/enantiomer.png  used on input line 45.
+Package luatex.def Info: slike/enantiomer.png  used on input line 48.
 (luatex.def)             Requested size: 195.0pt x 96.84747pt.
 <slike/voda.png, id=2, 863.079pt x 457.71pt>
 File: slike/voda.png Graphic file (type png)
 <use slike/voda.png>
-Package luatex.def Info: slike/voda.png  used on input line 50.
+Package luatex.def Info: slike/voda.png  used on input line 53.
 (luatex.def)             Requested size: 195.0pt x 103.41331pt.
 [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}<./slike/e
 nantiomer.png><./slike/voda.png>] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 113--115
+Underfull \hbox (badness 10000) in paragraph at lines 116--118
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--115
+Underfull \hbox (badness 10000) in paragraph at lines 116--118
 
  []
 
-[3] [4]
-Overfull \hbox (5.00467pt too wide) in paragraph at lines 202--223
-[]$[]$  $[]$ 
- []
-
-[5]
+[3] [4] [5]
 
 LaTeX Warning: Citation 'gerginova2022optical' on page 6 undefined on input lin
-e 253.
+e 256.
 
 [6]
 <slike/med.png, id=38, 866.23625pt x 370.38374pt>
 File: slike/med.png Graphic file (type png)
 <use slike/med.png>
-Package luatex.def Info: slike/med.png  used on input line 285.
+Package luatex.def Info: slike/med.png  used on input line 288.
 (luatex.def)             Requested size: 390.0pt x 166.7559pt.
 <slike/med2.png, id=39, 866.23625pt x 370.38374pt>
 File: slike/med2.png Graphic file (type png)
 <use slike/med2.png>
-Package luatex.def Info: slike/med2.png  used on input line 314.
+Package luatex.def Info: slike/med2.png  used on input line 317.
 (luatex.def)             Requested size: 390.0pt x 166.7559pt.
  [7<./slike/med.png><./slike/med2.png>]
 
@@ -727,7 +722,7 @@ See the biblatex package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.323 \bibliographystyle{plain}
+l.326 \bibliographystyle{plain}
                              
 ? 
 
@@ -737,7 +732,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.324 \bibliography
+l.327 \bibliography
                  {predstavitev}
 ? 
 [8] (./predstavitev.aux)
@@ -765,7 +760,7 @@ Here is how much of LuaTeX's memory you used:
  673 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 47 attribute, 64 glue_spec
 , 25 attribute_list, 1 write nodes
-   avail lists: 1:1,2:1063,3:104,4:17,5:321,6:23,7:5131,8:59,9:1251,10:12,11:568
+   avail lists: 1:1,2:1066,3:104,4:22,5:321,6:23,7:5214,8:59,9:1251,10:15,11:584
 
  33598 multiletter control sequences out of 65536+600000
  47 fonts using 3268151 bytes
@@ -783,7 +778,7 @@ local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loca
 l/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/
 texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/tex
 live/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on predstavitev.pdf (8 pages, 582704 bytes).
+Output written on predstavitev.pdf (8 pages, 582430 bytes).
 
 PDF statistics: 101 PDF objects out of 1000 (max. 8388607)
  61 compressed objects within 1 object stream
