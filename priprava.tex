@@ -1,0 +1,1213 @@
+\documentclass[11pt]{article}
+
+    \usepackage[breakable]{tcolorbox}
+    \usepackage{parskip} % Stop auto-indenting (to mimic markdown behaviour)
+    
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % Keep aspect ratio if custom image width or height is specified
+    \setkeys{Gin}{keepaspectratio}
+    % Maintain compatibility with old templates. Remove in nbconvert 6.0
+    \let\Oldincludegraphics\includegraphics
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionFormat{nocaption}{}
+    \captionsetup{format=nocaption,aboveskip=0pt,belowskip=0pt}
+
+    \usepackage{float}
+    \floatplacement{figure}{H} % forces figures to be placed at the correct location
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+
+    \usepackage{iftex}
+    \ifPDFTeX
+        \usepackage[T1]{fontenc}
+        \IfFileExists{alphabeta.sty}{
+              \usepackage{alphabeta}
+          }{
+              \usepackage[mathletters]{ucs}
+              \usepackage[utf8x]{inputenc}
+          }
+    \else
+        \usepackage{fontspec}
+        \usepackage{unicode-math}
+    \fi
+
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics
+                         % to support a larger range
+    \makeatletter % fix for old versions of grffile with XeLaTeX
+    \@ifpackagelater{grffile}{2019/11/01}
+    {
+      % Do nothing on new versions
+    }
+    {
+      \def\Gread@@xetex#1{%
+        \IfFileExists{"\Gin@base".bb}%
+        {\Gread@eps{\Gin@base.bb}}%
+        {\Gread@@xetex@aux#1}%
+      }
+    }
+    \makeatother
+    \usepackage[Export]{adjustbox} % Used to constrain images to a maximum size
+    \adjustboxset{max size={0.9\linewidth}{0.9\paperheight}}
+
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    % The default LaTeX title has an obnoxious amount of whitespace. By default,
+    % titling removes some of it. It also provides customization options.
+    \usepackage{titling}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage{array}     % table support for pandoc >= 2.11.3
+    \usepackage{calc}      % table minipage width calculation for pandoc >= 2.11.1
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    \usepackage{soul}      % strikethrough (\st) support for pandoc >= 3.0.0
+    \usepackage{mathrsfs}
+    
+
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+    \definecolor{ansi-default-inverse-fg}{HTML}{FFFFFF}
+    \definecolor{ansi-default-inverse-bg}{HTML}{000000}
+
+    % common color for the border for error outputs.
+    \definecolor{outerrorbackground}{HTML}{FFDFDF}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \makeatletter
+    \newsavebox\pandoc@box
+    \newcommand*\pandocbounded[1]{%
+      \sbox\pandoc@box{#1}%
+      % scaling factors for width and height
+      \Gscale@div\@tempa\textheight{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+      \Gscale@div\@tempb\linewidth{\wd\pandoc@box}%
+      % select the smaller of both
+      \ifdim\@tempb\p@<\@tempa\p@
+        \let\@tempa\@tempb
+      \fi
+      % scaling accordingly (\@tempa < 1)
+      \ifdim\@tempa\p@<\p@
+        \scalebox{\@tempa}{\usebox\pandoc@box}%
+      % scaling not needed, use as it is
+      \else
+        \usebox{\pandoc@box}%
+      \fi
+    }
+    \makeatother
+
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatibility definitions
+    \def\gt{>}
+    \def\lt{<}
+    \let\Oldtex\TeX
+    \let\Oldlatex\LaTeX
+    \renewcommand{\TeX}{\textrm{\Oldtex}}
+    \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
+    % Document parameters
+    % Document title
+    \title{priprava}
+    
+    
+    
+    
+    
+    
+    
+% Pygments definitions
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\@namedef{PY@tok@w}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\@namedef{PY@tok@c}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cp}{\def\PY@tc##1{\textcolor[rgb]{0.61,0.40,0.00}{##1}}}
+\@namedef{PY@tok@k}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kt}{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\@namedef{PY@tok@o}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ow}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@nb}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nf}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@nn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@ne}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.80,0.25,0.22}{##1}}}
+\@namedef{PY@tok@nv}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@no}{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\@namedef{PY@tok@nl}{\def\PY@tc##1{\textcolor[rgb]{0.46,0.46,0.00}{##1}}}
+\@namedef{PY@tok@ni}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@na}{\def\PY@tc##1{\textcolor[rgb]{0.41,0.47,0.13}{##1}}}
+\@namedef{PY@tok@nt}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@nd}{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\@namedef{PY@tok@s}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sd}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@si}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@se}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.36,0.12}{##1}}}
+\@namedef{PY@tok@sr}{\def\PY@tc##1{\textcolor[rgb]{0.64,0.35,0.47}{##1}}}
+\@namedef{PY@tok@ss}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sx}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@m}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@gh}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gu}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\@namedef{PY@tok@gd}{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\@namedef{PY@tok@gi}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.52,0.00}{##1}}}
+\@namedef{PY@tok@gr}{\def\PY@tc##1{\textcolor[rgb]{0.89,0.00,0.00}{##1}}}
+\@namedef{PY@tok@ge}{\let\PY@it=\textit}
+\@namedef{PY@tok@gs}{\let\PY@bf=\textbf}
+\@namedef{PY@tok@ges}{\let\PY@bf=\textbf\let\PY@it=\textit}
+\@namedef{PY@tok@gp}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\@namedef{PY@tok@go}{\def\PY@tc##1{\textcolor[rgb]{0.44,0.44,0.44}{##1}}}
+\@namedef{PY@tok@gt}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\@namedef{PY@tok@err}{\def\PY@bc##1{{\setlength{\fboxsep}{\string -\fboxrule}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}}
+\@namedef{PY@tok@kc}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kd}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kn}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@kr}{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@bp}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\@namedef{PY@tok@fm}{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\@namedef{PY@tok@vc}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vg}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vi}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@vm}{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\@namedef{PY@tok@sa}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sb}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sc}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@dl}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s2}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@sh}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@s1}{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\@namedef{PY@tok@mb}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mf}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mh}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mi}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@il}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@mo}{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\@namedef{PY@tok@ch}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cm}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cpf}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@c1}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+\@namedef{PY@tok@cs}{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.24,0.48,0.48}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % For linebreaks inside Verbatim environment from package fancyvrb.
+    \makeatletter
+        \newbox\Wrappedcontinuationbox
+        \newbox\Wrappedvisiblespacebox
+        \newcommand*\Wrappedvisiblespace {\textcolor{red}{\textvisiblespace}}
+        \newcommand*\Wrappedcontinuationsymbol {\textcolor{red}{\llap{\tiny$\m@th\hookrightarrow$}}}
+        \newcommand*\Wrappedcontinuationindent {3ex }
+        \newcommand*\Wrappedafterbreak {\kern\Wrappedcontinuationindent\copy\Wrappedcontinuationbox}
+        % Take advantage of the already applied Pygments mark-up to insert
+        % potential linebreaks for TeX processing.
+        %        {, <, #, %, $, ' and ": go to next line.
+        %        _, }, ^, &, >, - and ~: stay at end of broken line.
+        % Use of \textquotesingle for straight quote.
+        \newcommand*\Wrappedbreaksatspecials {%
+            \def\PYGZus{\discretionary{\char`\_}{\Wrappedafterbreak}{\char`\_}}%
+            \def\PYGZob{\discretionary{}{\Wrappedafterbreak\char`\{}{\char`\{}}%
+            \def\PYGZcb{\discretionary{\char`\}}{\Wrappedafterbreak}{\char`\}}}%
+            \def\PYGZca{\discretionary{\char`\^}{\Wrappedafterbreak}{\char`\^}}%
+            \def\PYGZam{\discretionary{\char`\&}{\Wrappedafterbreak}{\char`\&}}%
+            \def\PYGZlt{\discretionary{}{\Wrappedafterbreak\char`\<}{\char`\<}}%
+            \def\PYGZgt{\discretionary{\char`\>}{\Wrappedafterbreak}{\char`\>}}%
+            \def\PYGZsh{\discretionary{}{\Wrappedafterbreak\char`\#}{\char`\#}}%
+            \def\PYGZpc{\discretionary{}{\Wrappedafterbreak\char`\%}{\char`\%}}%
+            \def\PYGZdl{\discretionary{}{\Wrappedafterbreak\char`\$}{\char`\$}}%
+            \def\PYGZhy{\discretionary{\char`\-}{\Wrappedafterbreak}{\char`\-}}%
+            \def\PYGZsq{\discretionary{}{\Wrappedafterbreak\textquotesingle}{\textquotesingle}}%
+            \def\PYGZdq{\discretionary{}{\Wrappedafterbreak\char`\"}{\char`\"}}%
+            \def\PYGZti{\discretionary{\char`\~}{\Wrappedafterbreak}{\char`\~}}%
+        }
+        % Some characters . , ; ? ! / are not pygmentized.
+        % This macro makes them "active" and they will insert potential linebreaks
+        \newcommand*\Wrappedbreaksatpunct {%
+            \lccode`\~`\.\lowercase{\def~}{\discretionary{\hbox{\char`\.}}{\Wrappedafterbreak}{\hbox{\char`\.}}}%
+            \lccode`\~`\,\lowercase{\def~}{\discretionary{\hbox{\char`\,}}{\Wrappedafterbreak}{\hbox{\char`\,}}}%
+            \lccode`\~`\;\lowercase{\def~}{\discretionary{\hbox{\char`\;}}{\Wrappedafterbreak}{\hbox{\char`\;}}}%
+            \lccode`\~`\:\lowercase{\def~}{\discretionary{\hbox{\char`\:}}{\Wrappedafterbreak}{\hbox{\char`\:}}}%
+            \lccode`\~`\?\lowercase{\def~}{\discretionary{\hbox{\char`\?}}{\Wrappedafterbreak}{\hbox{\char`\?}}}%
+            \lccode`\~`\!\lowercase{\def~}{\discretionary{\hbox{\char`\!}}{\Wrappedafterbreak}{\hbox{\char`\!}}}%
+            \lccode`\~`\/\lowercase{\def~}{\discretionary{\hbox{\char`\/}}{\Wrappedafterbreak}{\hbox{\char`\/}}}%
+            \catcode`\.\active
+            \catcode`\,\active
+            \catcode`\;\active
+            \catcode`\:\active
+            \catcode`\?\active
+            \catcode`\!\active
+            \catcode`\/\active
+            \lccode`\~`\~
+        }
+    \makeatother
+
+    \let\OriginalVerbatim=\Verbatim
+    \makeatletter
+    \renewcommand{\Verbatim}[1][1]{%
+        %\parskip\z@skip
+        \sbox\Wrappedcontinuationbox {\Wrappedcontinuationsymbol}%
+        \sbox\Wrappedvisiblespacebox {\FV@SetupFont\Wrappedvisiblespace}%
+        \def\FancyVerbFormatLine ##1{\hsize\linewidth
+            \vtop{\raggedright\hyphenpenalty\z@\exhyphenpenalty\z@
+                \doublehyphendemerits\z@\finalhyphendemerits\z@
+                \strut ##1\strut}%
+        }%
+        % If the linebreak is at a space, the latter will be displayed as visible
+        % space at end of first line, and a continuation symbol starts next line.
+        % Stretch/shrink are however usually zero for typewriter font.
+        \def\FV@Space {%
+            \nobreak\hskip\z@ plus\fontdimen3\font minus\fontdimen4\font
+            \discretionary{\copy\Wrappedvisiblespacebox}{\Wrappedafterbreak}
+            {\kern\fontdimen2\font}%
+        }%
+
+        % Allow breaks at special characters using \PYG... macros.
+        \Wrappedbreaksatspecials
+        % Breaks at punctuation characters . , ; ? ! and / need catcode=\active
+        \OriginalVerbatim[#1,codes*=\Wrappedbreaksatpunct]%
+    }
+    \makeatother
+
+    % Exact colors from NB
+    \definecolor{incolor}{HTML}{303F9F}
+    \definecolor{outcolor}{HTML}{D84315}
+    \definecolor{cellborder}{HTML}{CFCFCF}
+    \definecolor{cellbackground}{HTML}{F7F7F7}
+
+    % prompt
+    \makeatletter
+    \newcommand{\boxspacing}{\kern\kvtcb@left@rule\kern\kvtcb@boxsep}
+    \makeatother
+    \newcommand{\prompt}[4]{
+        {\ttfamily\llap{{\color{#2}[#3]:\hspace{3pt}#4}}\vspace{-\baselineskip}}
+    }
+    
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+\begin{document}
+    
+    \maketitle
+    
+    
+
+    
+    \hypertarget{optiux10dna-rotacija-v-sladkorni-vodi}{%
+\section{Optična rotacija v sladkorni
+vodi}\label{optiux10dna-rotacija-v-sladkorni-vodi}}
+
+\hypertarget{uvod}{%
+\subsection{Uvod}\label{uvod}}
+
+Optična rotacija je pojav, kjer kiralne molekule, kot so saharoza,
+zavrtijo ravnino polarizirane svetlobe. Ta pojav je odvisen od: -
+koncentracije snovi (c), - dolžine poti svetlobe (l), - valovne dolžine
+svetlobe (\(\lambda\)).
+
+\hypertarget{osnovna-enaux10dba}{%
+\subsection{Osnovna enačba}\label{osnovna-enaux10dba}}
+
+Kot rotacije \(\alpha\) je povezan s specifično rotacijo
+\([\alpha]_\lambda\) preko:
+
+\(\alpha(\lambda) = [\alpha]_\lambda \cdot c \cdot l\)
+
+Specifična rotacija je funkcija valovne dolžine in jo lahko približamo z
+Drudejevim modelom:
+
+\([\alpha](\lambda) = \frac{k \lambda^2}{\lambda^2 - A^2}\)
+
+kjer sta (k) in (A) parametra, ki ju bomo določili s prilagajanjem
+modela na meritve.
+
+\hypertarget{namen-eksperimenta}{%
+\subsection{Namen eksperimenta}\label{namen-eksperimenta}}
+
+Merili bomo kot rotacije za različne koncentracije saharoze pri dveh
+valovnih dolžinah (rdeča \textasciitilde650 nm, zelena
+\textasciitilde532 nm). Poleg tega bomo primerjali dve vrsti medu,
+naravnega in sintetičnega, da pokažemo razliko v optični aktivnosti.
+
+    \hypertarget{korak-2-priprava-podatkov-za-eksperiment-in-zapis-napak}{%
+\section{Korak 2: Priprava podatkov za eksperiment in zapis
+napak}\label{korak-2-priprava-podatkov-za-eksperiment-in-zapis-napak}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{meritve-in-negotovosti}{%
+\subsection{1. Meritve in negotovosti}\label{meritve-in-negotovosti}}
+
+\textbf{Merjene količine:} - Koncentracija saharoze, \(c\) (npr. v g/mL)
+- Valovna dolžina, \(\lambda\) (v nm, poznana od lasera) - Kot rotacije,
+\(\alpha\) (v stopinjah, iz polarimetra)
+
+\textbf{Negotovosti:} - Absolutna napaka koncentracije, \(\Delta c\)\\
+Primer: če tehtnica meri s 0.001 g natančnostjo in pripravljaš
+raztopino, oceni to napako. - Absolutna napaka kota rotacije,
+\(\Delta \alpha\)\\
+Podatki od polarimetra (npr. ±0.05°) ali ocena glede na merilni
+instrument. - Napaka valovne dolžine ni potrebna, če uporabljaš laserske
+diode, ker so valovne dolžine zelo točne.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{postopek-priprave-podatkov-z-napakami}{%
+\subsection{2. Postopek priprave podatkov z
+napakami}\label{postopek-priprave-podatkov-z-napakami}}
+
+Izpis meritve z napako:
+
+\[
+c \pm \Delta c, \quad \lambda, \quad \alpha \pm \Delta \alpha
+\]
+
+\textbf{Primer (za eno meritev):}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.20}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.27}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.20}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.17}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.16}}@{}}
+\toprule
+koncentracija (g/mL) & napaka koncentracije (g/mL) & valovna dolžina
+(nm) & kot rotacije (°) & napaka kota (°) \\
+\midrule
+\endhead
+0.05 & 0.001 & 650 & 3.50 & 0.05 \\
+\bottomrule
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{enaux10dbe-za-nadaljnjo-analizo}{%
+\subsection{3. Enačbe za nadaljnjo
+analizo}\label{enaux10dbe-za-nadaljnjo-analizo}}
+
+Kot rotacije je povezan s koncentracijo in dolžino poti (zaenkrat je
+dolžina poti konstantna, npr. 1 dm):
+
+\[
+\alpha = [\alpha]_\lambda \cdot c \cdot l
+\]
+
+Če boš meril pri različnih koncentracijah, lahko izračunaš specifično
+rotacijo \([\alpha]_\lambda\) s formulo:
+
+\[
+[\alpha]_\lambda = \frac{\alpha}{c \cdot l}
+\]
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{primer-navodil-za-pripravo-podatkov}{%
+\subsection{5. Primer navodil za pripravo
+podatkov}\label{primer-navodil-za-pripravo-podatkov}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Pripravi sladkorno raztopino različnih koncentracij \(c\) (npr. 0.01,
+  0.03, 0.05 g/mL). Pri pripravi upoštevaj merilno napako tehtnice ali
+  volumna.
+\item
+  Izmeri kot rotacije \(\alpha\) pri vsaki koncentraciji za laserja z
+  valovnimi dolžinami \(\lambda_1 = 650\, \mathrm{nm}\) in
+  \(\lambda_2 = 532\, \mathrm{nm}\).
+\item
+  Zapiši meritve v tabelo z vsemi vrednostmi in njihovimi napakami.
+\item
+  Izračunaj specifično rotacijo po formuli zgoraj ter izračunaj njeno
+  negotovost.
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+    \([\alpha](\lambda) = \frac{k \lambda^2}{\lambda^2 - A^2}\)
+
+    \hypertarget{analiza-specifiux10dne-rotacije-z-uporabo-drudejeve-enaux10dbe}{%
+\section{Analiza specifične rotacije z uporabo Drudejeve
+enačbe}\label{analiza-specifiux10dne-rotacije-z-uporabo-drudejeve-enaux10dbe}}
+
+Merili smo specifično rotacijo \([\alpha](\lambda)\) pri različnih
+valovnih dolžinah. Za te podatke želimo določiti konstanti \(k\) in
+\(A\), ki opisujeta disperzijo optične aktivnosti po enačbi:
+
+\[
+[\alpha](\lambda) = \frac{k \lambda^2}{\lambda^2 - A^2}
+\]
+
+kjer je: - \(\lambda\) valovna dolžina (v nm), - \([\alpha](\lambda)\)
+specifična rotacija (v ° / (g/mL·dm)), - \(k\), \(A\) sta konstanti, ki
+ju bomo določili z ujemanjem.
+
+Spodaj izvedemo nelinearno prileganje (curve fitting) z uporabo
+\texttt{scipy.optimize.curve\_fit}.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{265}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Uvoz knjižnic}
+\PY{k+kn}{import}\PY{+w}{ }\PY{n+nn}{numpy}\PY{+w}{ }\PY{k}{as}\PY{+w}{ }\PY{n+nn}{np}
+\PY{k+kn}{import}\PY{+w}{ }\PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot}\PY{+w}{ }\PY{k}{as}\PY{+w}{ }\PY{n+nn}{plt}
+\PY{k+kn}{from}\PY{+w}{ }\PY{n+nn}{scipy}\PY{n+nn}{.}\PY{n+nn}{optimize}\PY{+w}{ }\PY{k+kn}{import} \PY{n}{curve\PYZus{}fit}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \hypertarget{podatki-iz-eksperimenta}{%
+\subsection{Podatki iz eksperimenta}\label{podatki-iz-eksperimenta}}
+
+Zabeležili smo naslednje podatke: - koncentracija je enaka za vse
+meritve, zato lahko primerjamo le specifično rotacijo.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{266}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Podatki (lambda v nm, alpha v deg/(g/mL·dm))}
+\PY{n}{lambda\PYZus{}vals} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{532}\PY{p}{,} \PY{l+m+mi}{589}\PY{p}{,} \PY{l+m+mi}{650}\PY{p}{]}\PY{p}{)}  \PY{c+c1}{\PYZsh{} nm}
+\PY{n}{alpha\PYZus{}vals} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{25.2}\PY{p}{,} \PY{l+m+mf}{20.0}\PY{p}{,} \PY{l+m+mf}{17.1}\PY{p}{]}\PY{p}{)}  \PY{c+c1}{\PYZsh{} specifična rotacija}
+
+\PY{c+c1}{\PYZsh{} Če imaš napake, lahko dodaš:}
+\PY{c+c1}{\PYZsh{} alpha\PYZus{}err = np.array([0.3, 0.3, 0.3])}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \hypertarget{definicija-modela}{%
+\subsection{Definicija modela}\label{definicija-modela}}
+
+Uporabimo model:
+
+\[
+[\alpha](\lambda) = \frac{k \lambda^2}{\lambda^2 - A^2}
+\]
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{267}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Drudejeva enačba}
+\PY{k}{def}\PY{+w}{ }\PY{n+nf}{drude\PYZus{}model}\PY{p}{(}\PY{n}{lam}\PY{p}{,} \PY{n}{k}\PY{p}{,} \PY{n}{A}\PY{p}{)}\PY{p}{:}
+    \PY{k}{return} \PY{p}{(}\PY{n}{k} \PY{o}{*} \PY{n}{lam}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)} \PY{o}{/} \PY{p}{(}\PY{n}{lam}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{\PYZhy{}} \PY{n}{A}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \hypertarget{prileganje-modela-eksperimentalnim-podatkom}{%
+\subsection{Prileganje modela eksperimentalnim
+podatkom}\label{prileganje-modela-eksperimentalnim-podatkom}}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{268}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Tu vnesemo svoje podatke}
+\PY{n}{lambda\PYZus{}vals} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{650}\PY{p}{,} \PY{l+m+mi}{590}\PY{p}{,} \PY{l+m+mi}{532}\PY{p}{,} \PY{l+m+mi}{480}\PY{p}{]}\PY{p}{)}  \PY{c+c1}{\PYZsh{} valovne dolžine v nm}
+\PY{n}{lambda\PYZus{}errs} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{5}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{]}\PY{p}{)}  \PY{c+c1}{\PYZsh{} napake valovnih dolžin}
+\PY{n}{alpha\PYZus{}vals} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{15.2}\PY{p}{,} \PY{l+m+mf}{16.7}\PY{p}{,} \PY{l+m+mf}{18.4}\PY{p}{,} \PY{l+m+mf}{19.9}\PY{p}{]}\PY{p}{)}  \PY{c+c1}{\PYZsh{} specifična rotacija}
+\PY{n}{alpha\PYZus{}errs} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{0.3}\PY{p}{,} \PY{l+m+mf}{0.3}\PY{p}{,} \PY{l+m+mf}{0.3}\PY{p}{,} \PY{l+m+mf}{0.3}\PY{p}{]}\PY{p}{)}      \PY{c+c1}{\PYZsh{} napake specifične rotacije}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{269}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Uvozimo potrebne knjižnice}
+\PY{k+kn}{import}\PY{+w}{ }\PY{n+nn}{numpy}\PY{+w}{ }\PY{k}{as}\PY{+w}{ }\PY{n+nn}{np}
+\PY{k+kn}{import}\PY{+w}{ }\PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot}\PY{+w}{ }\PY{k}{as}\PY{+w}{ }\PY{n+nn}{plt}
+\PY{k+kn}{from}\PY{+w}{ }\PY{n+nn}{scipy}\PY{n+nn}{.}\PY{n+nn}{optimize}\PY{+w}{ }\PY{k+kn}{import} \PY{n}{curve\PYZus{}fit}
+
+\PY{c+c1}{\PYZsh{} Drudejeva funkcija}
+\PY{k}{def}\PY{+w}{ }\PY{n+nf}{drude}\PY{p}{(}\PY{n}{lambda\PYZus{}nm}\PY{p}{,} \PY{n}{k}\PY{p}{,} \PY{n}{A}\PY{p}{)}\PY{p}{:}
+    \PY{k}{return} \PY{p}{(}\PY{n}{k} \PY{o}{*} \PY{n}{lambda\PYZus{}nm}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)} \PY{o}{/} \PY{p}{(}\PY{n}{lambda\PYZus{}nm}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{\PYZhy{}} \PY{n}{A}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
+
+
+\PY{c+c1}{\PYZsh{} Prileganje z upoštevanjem napak v y (x napake ne vplivajo na fit)}
+\PY{n}{params}\PY{p}{,} \PY{n}{cov} \PY{o}{=} \PY{n}{curve\PYZus{}fit}\PY{p}{(}\PY{n}{drude}\PY{p}{,} \PY{n}{lambda\PYZus{}vals}\PY{p}{,} \PY{n}{alpha\PYZus{}vals}\PY{p}{,} \PY{n}{sigma}\PY{o}{=}\PY{n}{alpha\PYZus{}errs}\PY{p}{,} \PY{n}{absolute\PYZus{}sigma}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{p0}\PY{o}{=}\PY{p}{(}\PY{l+m+mf}{1e4}\PY{p}{,} \PY{l+m+mi}{200}\PY{p}{)}\PY{p}{)}
+\PY{n}{k\PYZus{}fit}\PY{p}{,} \PY{n}{A\PYZus{}fit} \PY{o}{=} \PY{n}{params}
+\PY{n}{k\PYZus{}err}\PY{p}{,} \PY{n}{A\PYZus{}err} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{diag}\PY{p}{(}\PY{n}{cov}\PY{p}{)}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Izpis rezultatov}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Ujemajoči parametri:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{  k = }\PY{l+s+si}{\PYZob{}}\PY{n}{k\PYZus{}fit}\PY{l+s+si}{:}\PY{l+s+s2}{.2f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{ ± }\PY{l+s+si}{\PYZob{}}\PY{n}{k\PYZus{}err}\PY{l+s+si}{:}\PY{l+s+s2}{.2f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{  A = }\PY{l+s+si}{\PYZob{}}\PY{n}{A\PYZus{}fit}\PY{l+s+si}{:}\PY{l+s+s2}{.2f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{ ± }\PY{l+s+si}{\PYZob{}}\PY{n}{A\PYZus{}err}\PY{l+s+si}{:}\PY{l+s+s2}{.2f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{ nm}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Priprava za prikaz prileganja}
+\PY{n}{lambda\PYZus{}fit} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{450}\PY{p}{,} \PY{l+m+mi}{700}\PY{p}{,} \PY{l+m+mi}{300}\PY{p}{)}
+\PY{n}{alpha\PYZus{}fit} \PY{o}{=} \PY{n}{drude}\PY{p}{(}\PY{n}{lambda\PYZus{}fit}\PY{p}{,} \PY{n}{k\PYZus{}fit}\PY{p}{,} \PY{n}{A\PYZus{}fit}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Risanje grafa z error bar\PYZhy{}i v obeh smereh}
+\PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{8}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
+
+\PY{n}{plt}\PY{o}{.}\PY{n}{errorbar}\PY{p}{(}
+    \PY{n}{lambda\PYZus{}vals}\PY{p}{,}
+    \PY{n}{alpha\PYZus{}vals}\PY{p}{,}
+    \PY{n}{xerr}\PY{o}{=}\PY{n}{lambda\PYZus{}errs}\PY{p}{,}
+    \PY{n}{yerr}\PY{o}{=}\PY{n}{alpha\PYZus{}errs}\PY{p}{,}
+    \PY{n}{fmt}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{o}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{n}{markersize}\PY{o}{=}\PY{l+m+mi}{6}\PY{p}{,}
+    \PY{n}{markerfacecolor}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{steelblue}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{n}{markeredgecolor}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{black}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{n}{ecolor}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{gray}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{n}{elinewidth}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}
+    \PY{n}{capsize}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{,}
+    \PY{n}{label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Izmerjeni podatki z napako}\PY{l+s+s1}{\PYZsq{}}
+\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Prileganje funkcije}
+\PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{lambda\PYZus{}fit}\PY{p}{,} \PY{n}{alpha\PYZus{}fit}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{cornflowerblue}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mf}{2.2}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Drudejevo prileganje}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Oznake in estetika}
+\PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Valovna dolžina λ (nm)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Specifična rotacija [α](λ)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Prileganje podatkov Drudejevi enačbi z napakami v x in y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{k+kc}{True}\PY{p}{,} \PY{n}{linestyle}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{alpha}\PY{o}{=}\PY{l+m+mf}{0.6}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{tight\PYZus{}layout}\PY{p}{(}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Ujemajoči parametri:
+  k = 12.25 ± 0.35
+  A = 300.36 ± 8.90 nm
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{priprava_files/priprava_11_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \hypertarget{dejanske-meritve}{%
+\section{Dejanske meritve}\label{dejanske-meritve}}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{270}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Dolžina cevi v dm}
+\PY{n}{L\PYZus{}dm} \PY{o}{=} \PY{l+m+mf}{11.5} 
+\PY{n}{abs\PYZus{}L\PYZus{}dm} \PY{o}{=} \PY{l+m+mf}{0.5}  \PY{c+c1}{\PYZsh{} napaka dolžine cevi v dm}
+\PY{n}{rel\PYZus{}L\PYZus{}dm} \PY{o}{=} \PY{n}{abs\PYZus{}L\PYZus{}dm} \PY{o}{/} \PY{n}{L\PYZus{}dm}  \PY{c+c1}{\PYZsh{} relativna napaka dolžine cevi}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{271}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{import}\PY{+w}{ }\PY{n+nn}{pandas}\PY{+w}{ }\PY{k}{as}\PY{+w}{ }\PY{n+nn}{pd}
+
+\PY{c+c1}{\PYZsh{} Uvoz podatkov iz Excel datoteke \PYZsq{}meritve.xlsx\PYZsq{}}
+\PY{n}{df\PYZus{}meritve} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}excel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{meritve.xlsx}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Prikaz prvih nekaj vrstic za pregled}
+\PY{n}{df\PYZus{}meritve}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{271}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+      c  \textbackslash{}alpha r  \textbackslash{}alpha z
+0  0.00        75        79
+1  0.03        90        96
+2  0.05       102       110
+3  0.07       115       126
+4  0.09       131       136
+\end{Verbatim}
+\end{tcolorbox}
+        
+    Napake meritev
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{272}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Volumen tekočine v mL}
+\PY{n}{V\PYZus{}mL} \PY{o}{=} \PY{l+m+mi}{3000}
+\PY{n}{abs\PYZus{}V\PYZus{}mL} \PY{o}{=} \PY{l+m+mi}{60}  \PY{c+c1}{\PYZsh{} napaka volumna v mL}
+\PY{n}{rel\PYZus{}V\PYZus{}mL} \PY{o}{=} \PY{n}{abs\PYZus{}V\PYZus{}mL} \PY{o}{/} \PY{n}{V\PYZus{}mL}  \PY{c+c1}{\PYZsh{} relativna napaka volumna}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Relativna napaka volumna: }\PY{l+s+si}{\PYZob{}}\PY{n}{rel\PYZus{}V\PYZus{}mL}\PY{l+s+si}{:}\PY{l+s+s2}{.2f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{ (}\PY{l+s+si}{\PYZob{}}\PY{n}{rel\PYZus{}V\PYZus{}mL}\PY{o}{*}\PY{l+m+mi}{100}\PY{l+s+si}{:}\PY{l+s+s2}{.1f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZpc{})}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Relativna napaka volumna: 0.02 (2.0\%)
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{273}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} napaka mase v g}
+\PY{n}{abs\PYZus{}m0} \PY{o}{=} \PY{l+m+mi}{0}
+\PY{n}{abs\PYZus{}m} \PY{o}{=} \PY{l+m+mi}{3} \PY{c+c1}{\PYZsh{} napaka mase v g}
+\PY{c+c1}{\PYZsh{} Izračun abs\PYZus{}m / (c * V\PYZus{}mL) za vsako koncentracijo c v df\PYZus{}meritve (vključno z 0)}
+\PY{n}{rel\PYZus{}m\PYZus{}error} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+\PY{k}{for} \PY{n}{c} \PY{o+ow}{in} \PY{n}{df\PYZus{}meritve}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{c}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{:}
+    \PY{k}{if} \PY{n}{c} \PY{o}{!=} \PY{l+m+mi}{0}\PY{p}{:}
+        \PY{n}{value} \PY{o}{=} \PY{n}{abs\PYZus{}m} \PY{o}{/} \PY{p}{(}\PY{n}{c} \PY{o}{*} \PY{n}{V\PYZus{}mL}\PY{p}{)}
+    \PY{k}{else}\PY{p}{:}
+        \PY{n}{value} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{nan}  \PY{c+c1}{\PYZsh{} ali np.inf, če želiš označiti nedoločeno}
+    \PY{n}{rel\PYZus{}m\PYZus{}error}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{value}\PY{p}{)}
+
+\PY{n}{rel\PYZus{}m\PYZus{}error}  \PY{c+c1}{\PYZsh{} seznam rezultatov za vsako c}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{273}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+[nan,
+ 0.03333333333333333,
+ 0.02,
+ 0.014285714285714284,
+ 0.011111111111111112,
+ 0.01]
+\end{Verbatim}
+\end{tcolorbox}
+        
+    Meritve z odšteto začetno vrednostno
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{274}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{df\PYZus{}standard} \PY{o}{=} \PY{n}{df\PYZus{}meritve}\PY{o}{.}\PY{n}{copy}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{assign}\PY{p}{(}
+    \PY{o}{*}\PY{o}{*}\PY{p}{\PYZob{}}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s+s1}{alpha r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{df\PYZus{}meritve}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s+s1}{alpha r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{\PYZhy{}} \PY{n}{df\PYZus{}meritve}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s+s1}{alpha r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}
+        \PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s+s1}{alpha z}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{df\PYZus{}meritve}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s+s1}{alpha z}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{\PYZhy{}} \PY{n}{df\PYZus{}meritve}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s+s1}{alpha z}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+    \PY{p}{\PYZcb{}}
+\PY{p}{)}
+
+\PY{n}{df\PYZus{}standard}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{274}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+      c  \textbackslash{}alpha r  \textbackslash{}alpha z
+0  0.00         0         0
+1  0.03        15        17
+2  0.05        27        31
+3  0.07        40        47
+4  0.09        56        57
+5  0.10        62        64
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{275}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{abs\PYZus{}rot} \PY{o}{=} \PY{l+m+mi}{4}
+\PY{n}{rel\PYZus{}rot\PYZus{}err\PYZus{}r} \PY{o}{=} \PY{p}{[}
+    \PY{n}{abs\PYZus{}rot} \PY{o}{/} \PY{n}{row}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s+s1}{alpha r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+    \PY{k}{for} \PY{n}{idx}\PY{p}{,} \PY{n}{row} \PY{o+ow}{in} \PY{n}{df\PYZus{}standard}\PY{o}{.}\PY{n}{iterrows}\PY{p}{(}\PY{p}{)}
+    \PY{k}{if} \PY{n}{idx} \PY{o}{\PYZgt{}} \PY{l+m+mi}{0} \PY{o+ow}{and} \PY{n}{row}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s+s1}{alpha r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{!=} \PY{l+m+mi}{0}
+\PY{p}{]}
+\PY{n}{rel\PYZus{}rot\PYZus{}err\PYZus{}r}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{275}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+[np.float64(0.26666666666666666),
+ np.float64(0.14814814814814814),
+ np.float64(0.1),
+ np.float64(0.07142857142857142),
+ np.float64(0.06451612903225806)]
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{276}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{rel\PYZus{}rot\PYZus{}err\PYZus{}z} \PY{o}{=} \PY{p}{[}
+    \PY{n}{abs\PYZus{}rot} \PY{o}{/} \PY{n}{row}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s+s1}{alpha z}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+    \PY{k}{for} \PY{n}{idx}\PY{p}{,} \PY{n}{row} \PY{o+ow}{in} \PY{n}{df\PYZus{}standard}\PY{o}{.}\PY{n}{iterrows}\PY{p}{(}\PY{p}{)}
+    \PY{k}{if} \PY{n}{idx} \PY{o}{\PYZgt{}} \PY{l+m+mi}{0} \PY{o+ow}{and} \PY{n}{row}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s+s1}{alpha z}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{!=} \PY{l+m+mi}{0}
+\PY{p}{]}
+\PY{n}{rel\PYZus{}rot\PYZus{}err\PYZus{}z}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{276}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+[np.float64(0.23529411764705882),
+ np.float64(0.12903225806451613),
+ np.float64(0.0851063829787234),
+ np.float64(0.07017543859649122),
+ np.float64(0.0625)]
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\end{Verbatim}
+\end{tcolorbox}
+
+    \hypertarget{izraux10dun-ux3b1-za-vsako-meritve}{%
+\subsection{Izračun {[}α{]} za vsako
+meritve}\label{izraux10dun-ux3b1-za-vsako-meritve}}
+
+\([\alpha] = \frac{\alpha}{c \cdot L}\)
+
+    \hypertarget{rdeux10da}{%
+\subsubsection{rdeča}\label{rdeux10da}}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{277}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Izračun seznama specifičnih rotacij za rdečo (drugi stolpec, vrstice \PYZgt{} 0)}
+\PY{n}{spec\PYZus{}rot\PYZus{}r} \PY{o}{=} \PY{p}{[}
+    \PY{n}{row}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s+s1}{alpha r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{/} \PY{p}{(}\PY{n}{row}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{c}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{*} \PY{n}{L\PYZus{}dm}\PY{p}{)}
+    \PY{k}{for} \PY{n}{idx}\PY{p}{,} \PY{n}{row} \PY{o+ow}{in} \PY{n}{df\PYZus{}standard}\PY{o}{.}\PY{n}{iterrows}\PY{p}{(}\PY{p}{)}
+    \PY{k}{if} \PY{n}{idx} \PY{o}{\PYZgt{}} \PY{l+m+mi}{0} \PY{o+ow}{and} \PY{n}{row}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{c}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{!=} \PY{l+m+mi}{0}
+\PY{p}{]}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{spec\PYZus{}rot\PYZus{}r}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Izračun relativnih napak za vsako koncentracijo (vrstice \PYZgt{} 0 in c != 0)}
+\PY{c+c1}{\PYZsh{} Izračun relativnih napak za vsako koncentracijo (vrstice \PYZgt{} 0 in c != 0), vključno z rel\PYZus{}rot\PYZus{}err\PYZus{}r}
+\PY{n}{rel\PYZus{}errors\PYZus{}r} \PY{o}{=} \PY{p}{[}
+    \PY{n}{rel\PYZus{}L\PYZus{}dm} \PY{o}{+} \PY{n}{rel\PYZus{}m} \PY{o}{+} \PY{n}{rel\PYZus{}V\PYZus{}mL} \PY{o}{+} \PY{n}{rel\PYZus{}rot\PYZus{}err\PYZus{}r}\PY{p}{[}\PY{n}{idx} \PY{o}{\PYZhy{}} \PY{l+m+mi}{1}\PY{p}{]}
+    \PY{k}{for} \PY{n}{idx}\PY{p}{,} \PY{n}{rel\PYZus{}m} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{rel\PYZus{}m\PYZus{}error}\PY{p}{)}
+    \PY{k}{if} \PY{n}{idx} \PY{o}{\PYZgt{}} \PY{l+m+mi}{0} \PY{o+ow}{and} \PY{n}{df\PYZus{}standard}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{idx}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{c}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{!=} \PY{l+m+mi}{0}
+\PY{p}{]}
+\PY{n}{rel\PYZus{}errors\PYZus{}r}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[np.float64(43.47826086956522), np.float64(46.95652173913043),
+np.float64(49.689440993788814), np.float64(54.10628019323672),
+np.float64(53.91304347826086)]
+    \end{Verbatim}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{277}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+[np.float64(0.3634782608695652),
+ np.float64(0.23162640901771336),
+ np.float64(0.1777639751552795),
+ np.float64(0.14601794340924776),
+ np.float64(0.13799438990182328)]
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \([\alpha]_{c=0.030} = 43\left(1 \pm 0.36\right)\)\\
+\([\alpha]_{c=0.050} = 47\left(1 \pm 0.23\right)\)\\
+\([\alpha]_{c=0.070} = 50\left(1 \pm 0.17\right)\)\\
+\([\alpha]_{c=0.090} = 54\left(1 \pm 0.15\right)\)\\
+\([\alpha]_{c=0.100} = 54\left(1 \pm 0.14\right)\)
+
+    \hypertarget{zelena}{%
+\subsection{zelena}\label{zelena}}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{278}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Izračun seznama specifičnih rotacij za zeleno (tretji stolpec, vrstice \PYZgt{} 0)}
+\PY{n}{spec\PYZus{}rot\PYZus{}z} \PY{o}{=} \PY{p}{[}
+    \PY{n}{row}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}\PYZbs{}}\PY{l+s+s1}{alpha z}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{/} \PY{p}{(}\PY{n}{row}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{c}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{*} \PY{n}{L\PYZus{}dm}\PY{p}{)}
+    \PY{k}{for} \PY{n}{idx}\PY{p}{,} \PY{n}{row} \PY{o+ow}{in} \PY{n}{df\PYZus{}standard}\PY{o}{.}\PY{n}{iterrows}\PY{p}{(}\PY{p}{)}
+    \PY{k}{if} \PY{n}{idx} \PY{o}{\PYZgt{}} \PY{l+m+mi}{0} \PY{o+ow}{and} \PY{n}{row}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{c}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{!=} \PY{l+m+mi}{0}
+\PY{p}{]}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{spec\PYZus{}rot\PYZus{}z}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Izračun relativnih napak za vsako koncentracijo (vrstice \PYZgt{} 0 in c != 0)}
+\PY{n}{rel\PYZus{}errors\PYZus{}z} \PY{o}{=} \PY{p}{[}
+    \PY{n}{rel\PYZus{}L\PYZus{}dm} \PY{o}{+} \PY{n}{rel\PYZus{}m} \PY{o}{+} \PY{n}{rel\PYZus{}V\PYZus{}mL} \PY{o}{+} \PY{n}{rel\PYZus{}rot\PYZus{}err\PYZus{}z}\PY{p}{[}\PY{n}{idx} \PY{o}{\PYZhy{}} \PY{l+m+mi}{1}\PY{p}{]}
+    \PY{k}{for} \PY{n}{idx}\PY{p}{,} \PY{n}{rel\PYZus{}m} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{rel\PYZus{}m\PYZus{}error}\PY{p}{)}
+    \PY{k}{if} \PY{n}{idx} \PY{o}{\PYZgt{}} \PY{l+m+mi}{0} \PY{o+ow}{and} \PY{n}{df\PYZus{}standard}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{idx}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{c}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{!=} \PY{l+m+mi}{0}
+\PY{p}{]}
+\PY{n}{rel\PYZus{}errors\PYZus{}z}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[np.float64(49.275362318840585), np.float64(53.91304347826086),
+np.float64(58.38509316770186), np.float64(55.072463768115945),
+np.float64(55.65217391304347)]
+    \end{Verbatim}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{278}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+[np.float64(0.33210571184995735),
+ np.float64(0.21251051893408135),
+ np.float64(0.1628703581340029),
+ np.float64(0.14476481057716756),
+ np.float64(0.13597826086956522)]
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \([\alpha]_{c=0.030} = 49\left(1 \pm 0.33\right)\)\\
+\([\alpha]_{c=0.050} = 54\left(1 \pm 0.21\right)\)\\
+\([\alpha]_{c=0.070} = 58\left(1 \pm 0.16\right)\)\\
+\([\alpha]_{c=0.090} = 55\left(1 \pm 0.14\right)\)\\
+\([\alpha]_{c=0.100} = 56\left(1 \pm 0.14\right)\)
+
+    \hypertarget{priprava-za-analizo-z-drudejevo-metodo}{%
+\subsection{Priprava za analizo z Drudejevo
+metodo}\label{priprava-za-analizo-z-drudejevo-metodo}}
+
+    \[
+[\alpha](\lambda) = \frac{k \lambda^2}{\lambda^2 - A^2}
+\]
+
+    \hypertarget{valovne-dolux17eine-laserjev}{%
+\subsubsection{valovne dolžine
+laserjev}\label{valovne-dolux17eine-laserjev}}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{279}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{lambda\PYZus{}r} \PY{o}{=} \PY{l+m+mi}{635}
+\PY{n}{lambda\PYZus{}z} \PY{o}{=} \PY{l+m+mi}{532}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{280}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Tu vnesemo svoje podatke}
+\PY{n}{lambda\PYZus{}vals} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{635}\PY{p}{,} \PY{l+m+mi}{635}\PY{p}{,} \PY{l+m+mi}{635}\PY{p}{,} \PY{l+m+mi}{635}\PY{p}{,} \PY{l+m+mi}{635}\PY{p}{,} \PY{l+m+mi}{532}\PY{p}{,} \PY{l+m+mi}{532}\PY{p}{,} \PY{l+m+mi}{532}\PY{p}{,} \PY{l+m+mi}{532}\PY{p}{,}\PY{l+m+mi}{532}\PY{p}{]}  \PY{c+c1}{\PYZsh{} valovne dolžine v nm}
+\PY{n}{lambda\PYZus{}errs} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]} \PY{o}{*} \PY{n+nb}{len}\PY{p}{(}\PY{n}{lambda\PYZus{}vals}\PY{p}{)}  \PY{c+c1}{\PYZsh{} predpostavljamo napako ±1 nm za vsako valovno dolžino}
+
+
+
+\PY{n}{alpha\PYZus{}vals} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{concatenate}\PY{p}{(}\PY{p}{(}\PY{n}{spec\PYZus{}rot\PYZus{}r}\PY{p}{,} \PY{n}{spec\PYZus{}rot\PYZus{}z}\PY{p}{)}\PY{p}{)}  \PY{c+c1}{\PYZsh{} specifična rotacija}
+
+\PY{n}{alpha\PYZus{}errs\PYZus{}r} \PY{o}{=} \PY{p}{[}\PY{n}{val} \PY{o}{*} \PY{n}{rel} \PY{k}{for} \PY{n}{val}\PY{p}{,} \PY{n}{rel} \PY{o+ow}{in} \PY{n+nb}{zip}\PY{p}{(}\PY{n}{spec\PYZus{}rot\PYZus{}r}\PY{p}{,} \PY{n}{rel\PYZus{}errors\PYZus{}r}\PY{p}{)}\PY{p}{]}
+\PY{n}{alpha\PYZus{}errs\PYZus{}z} \PY{o}{=} \PY{p}{[}\PY{n}{val} \PY{o}{*} \PY{n}{rel} \PY{k}{for} \PY{n}{val}\PY{p}{,} \PY{n}{rel} \PY{o+ow}{in} \PY{n+nb}{zip}\PY{p}{(}\PY{n}{spec\PYZus{}rot\PYZus{}z}\PY{p}{,} \PY{n}{rel\PYZus{}errors\PYZus{}z}\PY{p}{)}\PY{p}{]}
+\PY{n}{alpha\PYZus{}errs} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{concatenate}\PY{p}{(}\PY{p}{(}\PY{n}{alpha\PYZus{}errs\PYZus{}r}\PY{p}{,} \PY{n}{alpha\PYZus{}errs\PYZus{}z}\PY{p}{)}\PY{p}{)}  \PY{c+c1}{\PYZsh{} napake specifične rotacije}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{281}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Uvozimo potrebne knjižnice}
+\PY{k+kn}{import}\PY{+w}{ }\PY{n+nn}{numpy}\PY{+w}{ }\PY{k}{as}\PY{+w}{ }\PY{n+nn}{np}
+\PY{k+kn}{import}\PY{+w}{ }\PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot}\PY{+w}{ }\PY{k}{as}\PY{+w}{ }\PY{n+nn}{plt}
+\PY{k+kn}{from}\PY{+w}{ }\PY{n+nn}{scipy}\PY{n+nn}{.}\PY{n+nn}{optimize}\PY{+w}{ }\PY{k+kn}{import} \PY{n}{curve\PYZus{}fit}
+
+\PY{c+c1}{\PYZsh{} Drudejeva funkcija}
+\PY{k}{def}\PY{+w}{ }\PY{n+nf}{drude}\PY{p}{(}\PY{n}{lambda\PYZus{}nm}\PY{p}{,} \PY{n}{k}\PY{p}{,} \PY{n}{A}\PY{p}{)}\PY{p}{:}
+    \PY{k}{return} \PY{p}{(}\PY{n}{k} \PY{o}{*} \PY{n}{lambda\PYZus{}nm}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)} \PY{o}{/} \PY{p}{(}\PY{n}{lambda\PYZus{}nm}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{\PYZhy{}} \PY{n}{A}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
+
+
+\PY{c+c1}{\PYZsh{} Prileganje z upoštevanjem napak v y (x napake ne vplivajo na fit)}
+\PY{n}{params}\PY{p}{,} \PY{n}{cov} \PY{o}{=} \PY{n}{curve\PYZus{}fit}\PY{p}{(}\PY{n}{drude}\PY{p}{,} \PY{n}{lambda\PYZus{}vals}\PY{p}{,} \PY{n}{alpha\PYZus{}vals}\PY{p}{,} \PY{n}{sigma}\PY{o}{=}\PY{n}{alpha\PYZus{}errs}\PY{p}{,} \PY{n}{absolute\PYZus{}sigma}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{p0}\PY{o}{=}\PY{p}{(}\PY{l+m+mf}{1e4}\PY{p}{,} \PY{l+m+mi}{200}\PY{p}{)}\PY{p}{)}
+\PY{n}{k\PYZus{}fit}\PY{p}{,} \PY{n}{A\PYZus{}fit} \PY{o}{=} \PY{n}{params}
+\PY{n}{k\PYZus{}err}\PY{p}{,} \PY{n}{A\PYZus{}err} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{diag}\PY{p}{(}\PY{n}{cov}\PY{p}{)}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Izpis rezultatov}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Ujemajoči parametri:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{  k = }\PY{l+s+si}{\PYZob{}}\PY{n}{k\PYZus{}fit}\PY{l+s+si}{:}\PY{l+s+s2}{.2f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{ ± }\PY{l+s+si}{\PYZob{}}\PY{n}{k\PYZus{}err}\PY{l+s+si}{:}\PY{l+s+s2}{.2f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{  A = }\PY{l+s+si}{\PYZob{}}\PY{n}{A\PYZus{}fit}\PY{l+s+si}{:}\PY{l+s+s2}{.2f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{ ± }\PY{l+s+si}{\PYZob{}}\PY{n}{A\PYZus{}err}\PY{l+s+si}{:}\PY{l+s+s2}{.2f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{ nm}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Priprava za prikaz prileganja}
+\PY{n}{lambda\PYZus{}fit} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{450}\PY{p}{,} \PY{l+m+mi}{700}\PY{p}{,} \PY{l+m+mi}{300}\PY{p}{)}
+\PY{n}{alpha\PYZus{}fit} \PY{o}{=} \PY{n}{drude}\PY{p}{(}\PY{n}{lambda\PYZus{}fit}\PY{p}{,} \PY{n}{k\PYZus{}fit}\PY{p}{,} \PY{n}{A\PYZus{}fit}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Risanje grafa z error bar\PYZhy{}i v obeh smereh}
+\PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{8}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
+
+\PY{n}{plt}\PY{o}{.}\PY{n}{errorbar}\PY{p}{(}
+    \PY{n}{lambda\PYZus{}vals}\PY{p}{,}
+    \PY{n}{alpha\PYZus{}vals}\PY{p}{,}
+    \PY{n}{xerr}\PY{o}{=}\PY{n}{lambda\PYZus{}errs}\PY{p}{,}
+    \PY{n}{yerr}\PY{o}{=}\PY{n}{alpha\PYZus{}errs}\PY{p}{,}
+    \PY{n}{fmt}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{o}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{n}{markersize}\PY{o}{=}\PY{l+m+mi}{6}\PY{p}{,}
+    \PY{n}{markerfacecolor}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{steelblue}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{n}{markeredgecolor}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{black}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{n}{ecolor}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{gray}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}
+    \PY{n}{elinewidth}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}
+    \PY{n}{capsize}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{,}
+    \PY{n}{label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Izmerjeni podatki z napako}\PY{l+s+s1}{\PYZsq{}}
+\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Prileganje funkcije}
+\PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{lambda\PYZus{}fit}\PY{p}{,} \PY{n}{alpha\PYZus{}fit}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{cornflowerblue}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mf}{2.2}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Drudejevo prileganje}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Oznake in estetika}
+\PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Valovna dolžina λ (nm)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Specifična rotacija [α](λ)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Prileganje podatkov Drudejevi enačbi z napakami v x in y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{grid}\PY{p}{(}\PY{k+kc}{True}\PY{p}{,} \PY{n}{linestyle}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{alpha}\PY{o}{=}\PY{l+m+mf}{0.6}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{tight\PYZus{}layout}\PY{p}{(}\PY{p}{)}
+\PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Ujemajoči parametri:
+  k = 43.88 ± 11.85
+  A = 242.28 ± 146.87 nm
+    \end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{priprava_files/priprava_35_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{282}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{k\PYZus{}rel} \PY{o}{=} \PY{n}{k\PYZus{}err} \PY{o}{/} \PY{n}{k\PYZus{}fit}
+\PY{n}{A\PYZus{}rel} \PY{o}{=} \PY{n}{A\PYZus{}err} \PY{o}{/} \PY{n}{A\PYZus{}fit}
+
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Relativna napaka k: }\PY{l+s+si}{\PYZob{}}\PY{n}{k\PYZus{}rel}\PY{l+s+si}{:}\PY{l+s+s2}{.2\PYZpc{}}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Relativna napaka A: }\PY{l+s+si}{\PYZob{}}\PY{n}{A\PYZus{}rel}\PY{l+s+si}{:}\PY{l+s+s2}{.2\PYZpc{}}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Relativna napaka k: 27.00\%
+Relativna napaka A: 60.62\%
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{283}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from}\PY{+w}{ }\PY{n+nn}{sympy}\PY{+w}{ }\PY{k+kn}{import} \PY{n}{symbols}\PY{p}{,} \PY{n}{diff}\PY{p}{,} \PY{n}{simplify}
+
+\PY{c+c1}{\PYZsh{} Define symbols}
+\PY{n}{k}\PY{p}{,} \PY{n}{A}\PY{p}{,} \PY{n}{lam} \PY{o}{=} \PY{n}{symbols}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{k A lam}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Define the function}
+\PY{n}{alpha} \PY{o}{=} \PY{n}{k} \PY{o}{*} \PY{n}{lam}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{/} \PY{p}{(}\PY{n}{lam}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{\PYZhy{}} \PY{n}{A}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Partial derivatives}
+\PY{n}{d\PYZus{}alpha\PYZus{}dk} \PY{o}{=} \PY{n}{simplify}\PY{p}{(}\PY{n}{diff}\PY{p}{(}\PY{n}{alpha}\PY{p}{,} \PY{n}{k}\PY{p}{)}\PY{p}{)}
+\PY{n}{d\PYZus{}alpha\PYZus{}dA} \PY{o}{=} \PY{n}{simplify}\PY{p}{(}\PY{n}{diff}\PY{p}{(}\PY{n}{alpha}\PY{p}{,} \PY{n}{A}\PY{p}{)}\PY{p}{)}
+\PY{n}{d\PYZus{}alpha\PYZus{}dlam} \PY{o}{=} \PY{n}{simplify}\PY{p}{(}\PY{n}{diff}\PY{p}{(}\PY{n}{alpha}\PY{p}{,} \PY{n}{lam}\PY{p}{)}\PY{p}{)}
+
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{∂[α]/∂k =}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{d\PYZus{}alpha\PYZus{}dk}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{∂[α]/∂A =}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{d\PYZus{}alpha\PYZus{}dA}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{∂[α]/∂λ =}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{d\PYZus{}alpha\PYZus{}dlam}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+∂[α]/∂k = -lam**2/(A**2 - lam**2)
+∂[α]/∂A = 2*A*k*lam**2/(A**2 - lam**2)**2
+∂[α]/∂λ = -2*A**2*k*lam/(A**2 - lam**2)**2
+    \end{Verbatim}
+
+    Delni odvodi Drudejeve funkcije:
+
+\(\frac{\partial [\alpha]}{\partial k} = \frac{-\lambda^2}{A^2 - \lambda^2}\)
+
+\(\frac{\partial [\alpha]}{\partial A} = \frac{2A k \lambda^2}{(A^2 - \lambda^2)^2}\)
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{284}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from}\PY{+w}{ }\PY{n+nn}{sympy}\PY{+w}{ }\PY{k+kn}{import} \PY{n}{lambdify}
+
+\PY{c+c1}{\PYZsh{} Uporabi vrednosti: k\PYZus{}fit, k\PYZus{}err, A\PYZus{}fit, A\PYZus{}err, lambda\PYZus{}r ali lambda\PYZus{}z}
+\PY{c+c1}{\PYZsh{} Izračunamo napako za rdečo valovno dolžino (lambda\PYZus{}r)}
+\PY{n}{lam\PYZus{}val} \PY{o}{=} \PY{n}{lambda\PYZus{}r}
+
+\PY{c+c1}{\PYZsh{} Pretvori odvode v funkcije}
+\PY{n}{d\PYZus{}alpha\PYZus{}dk\PYZus{}func} \PY{o}{=} \PY{n}{lambdify}\PY{p}{(}\PY{p}{(}\PY{n}{k}\PY{p}{,} \PY{n}{A}\PY{p}{,} \PY{n}{lam}\PY{p}{)}\PY{p}{,} \PY{n}{d\PYZus{}alpha\PYZus{}dk}\PY{p}{)}
+\PY{n}{d\PYZus{}alpha\PYZus{}dA\PYZus{}func} \PY{o}{=} \PY{n}{lambdify}\PY{p}{(}\PY{p}{(}\PY{n}{k}\PY{p}{,} \PY{n}{A}\PY{p}{,} \PY{n}{lam}\PY{p}{)}\PY{p}{,} \PY{n}{d\PYZus{}alpha\PYZus{}dA}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Izračunaj odvode pri dobljenih parametrih}
+\PY{n}{d\PYZus{}alpha\PYZus{}dk\PYZus{}val} \PY{o}{=} \PY{n}{d\PYZus{}alpha\PYZus{}dk\PYZus{}func}\PY{p}{(}\PY{n}{k\PYZus{}fit}\PY{p}{,} \PY{n}{A\PYZus{}fit}\PY{p}{,} \PY{n}{lam\PYZus{}val}\PY{p}{)}
+\PY{n}{d\PYZus{}alpha\PYZus{}dA\PYZus{}val} \PY{o}{=} \PY{n}{d\PYZus{}alpha\PYZus{}dA\PYZus{}func}\PY{p}{(}\PY{n}{k\PYZus{}fit}\PY{p}{,} \PY{n}{A\PYZus{}fit}\PY{p}{,} \PY{n}{lam\PYZus{}val}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Skupna napaka}
+\PY{n}{delta\PYZus{}alpha} \PY{o}{=} \PY{n+nb}{abs}\PY{p}{(}\PY{n}{d\PYZus{}alpha\PYZus{}dk\PYZus{}val}\PY{p}{)} \PY{o}{*} \PY{n}{k\PYZus{}err} \PY{o}{+} \PY{n+nb}{abs}\PY{p}{(}\PY{n}{d\PYZus{}alpha\PYZus{}dA\PYZus{}val}\PY{p}{)} \PY{o}{*} \PY{n}{A\PYZus{}err}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Δ[α](}\PY{l+s+si}{\PYZob{}}\PY{n}{lam\PYZus{}val}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{ nm) = }\PY{l+s+si}{\PYZob{}}\PY{n}{delta\PYZus{}alpha}\PY{l+s+si}{:}\PY{l+s+s2}{.2f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{[α](}\PY{l+s+si}{\PYZob{}}\PY{n}{lam\PYZus{}val}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{ nm) = }\PY{l+s+si}{\PYZob{}}\PY{n}{d\PYZus{}alpha\PYZus{}dk\PYZus{}func}\PY{p}{(}\PY{n}{k\PYZus{}fit}\PY{p}{,}\PY{+w}{ }\PY{n}{A\PYZus{}fit}\PY{p}{,}\PY{+w}{ }\PY{n}{lam\PYZus{}val}\PY{p}{)}\PY{+w}{ }\PY{o}{*}\PY{+w}{ }\PY{n}{k\PYZus{}fit}\PY{+w}{ }\PY{o}{+}\PY{+w}{ }\PY{n}{d\PYZus{}alpha\PYZus{}dA\PYZus{}func}\PY{p}{(}\PY{n}{k\PYZus{}fit}\PY{p}{,}\PY{+w}{ }\PY{n}{A\PYZus{}fit}\PY{p}{,}\PY{+w}{ }\PY{n}{lam\PYZus{}val}\PY{p}{)}\PY{+w}{ }\PY{o}{*}\PY{+w}{ }\PY{n}{A\PYZus{}fit}\PY{l+s+si}{:}\PY{l+s+s2}{.2f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{ ± }\PY{l+s+si}{\PYZob{}}\PY{n}{delta\PYZus{}alpha}\PY{l+s+si}{:}\PY{l+s+s2}{.2f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+
+
+\PY{c+c1}{\PYZsh{} Uporabi vrednosti: k\PYZus{}fit, k\PYZus{}err, A\PYZus{}fit, A\PYZus{}err, lambda\PYZus{}r ali lambda\PYZus{}z}
+\PY{c+c1}{\PYZsh{} Izračunamo napako za rdečo valovno dolžino (lambda\PYZus{}r)}
+\PY{n}{lam\PYZus{}val} \PY{o}{=} \PY{n}{lambda\PYZus{}z}
+
+\PY{c+c1}{\PYZsh{} Pretvori odvode v funkcije}
+\PY{n}{d\PYZus{}alpha\PYZus{}dk\PYZus{}func} \PY{o}{=} \PY{n}{lambdify}\PY{p}{(}\PY{p}{(}\PY{n}{k}\PY{p}{,} \PY{n}{A}\PY{p}{,} \PY{n}{lam}\PY{p}{)}\PY{p}{,} \PY{n}{d\PYZus{}alpha\PYZus{}dk}\PY{p}{)}
+\PY{n}{d\PYZus{}alpha\PYZus{}dA\PYZus{}func} \PY{o}{=} \PY{n}{lambdify}\PY{p}{(}\PY{p}{(}\PY{n}{k}\PY{p}{,} \PY{n}{A}\PY{p}{,} \PY{n}{lam}\PY{p}{)}\PY{p}{,} \PY{n}{d\PYZus{}alpha\PYZus{}dA}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Izračunaj odvode pri dobljenih parametrih}
+\PY{n}{d\PYZus{}alpha\PYZus{}dk\PYZus{}val} \PY{o}{=} \PY{n}{d\PYZus{}alpha\PYZus{}dk\PYZus{}func}\PY{p}{(}\PY{n}{k\PYZus{}fit}\PY{p}{,} \PY{n}{A\PYZus{}fit}\PY{p}{,} \PY{n}{lam\PYZus{}val}\PY{p}{)}
+\PY{n}{d\PYZus{}alpha\PYZus{}dA\PYZus{}val} \PY{o}{=} \PY{n}{d\PYZus{}alpha\PYZus{}dA\PYZus{}func}\PY{p}{(}\PY{n}{k\PYZus{}fit}\PY{p}{,} \PY{n}{A\PYZus{}fit}\PY{p}{,} \PY{n}{lam\PYZus{}val}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Skupna napaka}
+\PY{n}{delta\PYZus{}alpha} \PY{o}{=} \PY{n+nb}{abs}\PY{p}{(}\PY{n}{d\PYZus{}alpha\PYZus{}dk\PYZus{}val}\PY{p}{)} \PY{o}{*} \PY{n}{k\PYZus{}err} \PY{o}{+} \PY{n+nb}{abs}\PY{p}{(}\PY{n}{d\PYZus{}alpha\PYZus{}dA\PYZus{}val}\PY{p}{)} \PY{o}{*} \PY{n}{A\PYZus{}err}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Δ[α](}\PY{l+s+si}{\PYZob{}}\PY{n}{lam\PYZus{}val}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{ nm) = }\PY{l+s+si}{\PYZob{}}\PY{n}{delta\PYZus{}alpha}\PY{l+s+si}{:}\PY{l+s+s2}{.2f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{[α](}\PY{l+s+si}{\PYZob{}}\PY{n}{lam\PYZus{}val}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{ nm) = }\PY{l+s+si}{\PYZob{}}\PY{n}{d\PYZus{}alpha\PYZus{}dk\PYZus{}func}\PY{p}{(}\PY{n}{k\PYZus{}fit}\PY{p}{,}\PY{+w}{ }\PY{n}{A\PYZus{}fit}\PY{p}{,}\PY{+w}{ }\PY{n}{lam\PYZus{}val}\PY{p}{)}\PY{+w}{ }\PY{o}{*}\PY{+w}{ }\PY{n}{k\PYZus{}fit}\PY{+w}{ }\PY{o}{+}\PY{+w}{ }\PY{n}{d\PYZus{}alpha\PYZus{}dA\PYZus{}func}\PY{p}{(}\PY{n}{k\PYZus{}fit}\PY{p}{,}\PY{+w}{ }\PY{n}{A\PYZus{}fit}\PY{p}{,}\PY{+w}{ }\PY{n}{lam\PYZus{}val}\PY{p}{)}\PY{+w}{ }\PY{o}{*}\PY{+w}{ }\PY{n}{A\PYZus{}fit}\PY{l+s+si}{:}\PY{l+s+s2}{.2f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{ ± }\PY{l+s+si}{\PYZob{}}\PY{n}{delta\PYZus{}alpha}\PY{l+s+si}{:}\PY{l+s+s2}{.2f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Δ[α](635 nm) = 24.48
+[α](635 nm) = 68.86 ± 24.48
+Δ[α](532 nm) = 32.51
+[α](532 nm) = 84.34 ± 32.51
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{285}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from}\PY{+w}{ }\PY{n+nn}{sympy}\PY{+w}{ }\PY{k+kn}{import} \PY{n}{lambdify}
+
+\PY{c+c1}{\PYZsh{} Izračun specifične rotacije in njene napake za modri laser (npr. λ = 450 nm)}
+\PY{n}{lambda\PYZus{}blue} \PY{o}{=} \PY{l+m+mi}{450}  \PY{c+c1}{\PYZsh{} nm}
+
+\PY{c+c1}{\PYZsh{} Uporabi Drudejev model in napake parametrov}
+\PY{n}{alpha\PYZus{}blue} \PY{o}{=} \PY{p}{(}\PY{n}{k\PYZus{}fit} \PY{o}{*} \PY{n}{lambda\PYZus{}blue}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)} \PY{o}{/} \PY{p}{(}\PY{n}{lambda\PYZus{}blue}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{\PYZhy{}} \PY{n}{A\PYZus{}fit}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Delni odvodi po k in A (že definirani: d\PYZus{}alpha\PYZus{}dk, d\PYZus{}alpha\PYZus{}dA)}
+
+\PY{n}{d\PYZus{}alpha\PYZus{}dk\PYZus{}func} \PY{o}{=} \PY{n}{lambdify}\PY{p}{(}\PY{p}{(}\PY{n}{k}\PY{p}{,} \PY{n}{A}\PY{p}{,} \PY{n}{lam}\PY{p}{)}\PY{p}{,} \PY{n}{d\PYZus{}alpha\PYZus{}dk}\PY{p}{)}
+\PY{n}{d\PYZus{}alpha\PYZus{}dA\PYZus{}func} \PY{o}{=} \PY{n}{lambdify}\PY{p}{(}\PY{p}{(}\PY{n}{k}\PY{p}{,} \PY{n}{A}\PY{p}{,} \PY{n}{lam}\PY{p}{)}\PY{p}{,} \PY{n}{d\PYZus{}alpha\PYZus{}dA}\PY{p}{)}
+
+\PY{n}{d\PYZus{}alpha\PYZus{}dk\PYZus{}val} \PY{o}{=} \PY{n}{d\PYZus{}alpha\PYZus{}dk\PYZus{}func}\PY{p}{(}\PY{n}{k\PYZus{}fit}\PY{p}{,} \PY{n}{A\PYZus{}fit}\PY{p}{,} \PY{n}{lambda\PYZus{}blue}\PY{p}{)}
+\PY{n}{d\PYZus{}alpha\PYZus{}dA\PYZus{}val} \PY{o}{=} \PY{n}{d\PYZus{}alpha\PYZus{}dA\PYZus{}func}\PY{p}{(}\PY{n}{k\PYZus{}fit}\PY{p}{,} \PY{n}{A\PYZus{}fit}\PY{p}{,} \PY{n}{lambda\PYZus{}blue}\PY{p}{)}
+
+\PY{c+c1}{\PYZsh{} Skupna napaka (približek, zanemarimo korelacijo)}
+\PY{n}{delta\PYZus{}alpha\PYZus{}blue} \PY{o}{=} \PY{n+nb}{abs}\PY{p}{(}\PY{n}{d\PYZus{}alpha\PYZus{}dk\PYZus{}val}\PY{p}{)} \PY{o}{*} \PY{n}{k\PYZus{}err} \PY{o}{+} \PY{n+nb}{abs}\PY{p}{(}\PY{n}{d\PYZus{}alpha\PYZus{}dA\PYZus{}val}\PY{p}{)} \PY{o}{*} \PY{n}{A\PYZus{}err}
+
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+sa}{f}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{[α](450 nm) = }\PY{l+s+si}{\PYZob{}}\PY{n}{alpha\PYZus{}blue}\PY{l+s+si}{:}\PY{l+s+s2}{.2f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{ ± }\PY{l+s+si}{\PYZob{}}\PY{n}{delta\PYZus{}alpha\PYZus{}blue}\PY{l+s+si}{:}\PY{l+s+s2}{.2f}\PY{l+s+si}{\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[α](450 nm) = 61.80 ± 47.27
+    \end{Verbatim}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+\end{document}
