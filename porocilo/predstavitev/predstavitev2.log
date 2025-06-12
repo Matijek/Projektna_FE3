@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2025.2.26)  12 JUN 2025 18:27
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2025.2.26)  12 JUN 2025 18:48
  restricted system commands enabled.
 **predstavitev2.tex
 (./predstavitev2.tex
@@ -748,12 +748,7 @@ Overfull \hbox (44.05426pt too wide) in paragraph at lines 204--225
 []$[]$  $[]$ 
  []
 
-[9] [10]
-
-LaTeX Warning: Citation 'gerginova2022optical' on page 11 undefined on input li
-ne 255.
-
-[11]
+[9] [10] [11]
 <slike/med.png, id=49, 866.23625pt x 370.38374pt>
 File: slike/med.png Graphic file (type png)
 <use slike/med.png>
@@ -789,13 +784,13 @@ Package logreq Info: Writing requests to 'predstavitev2.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 11728 strings out of 476447
+ 11547 strings out of 476447
  125161,1977958 words of node,token memory allocated
  673 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 47 attribute, 64 glue_spec
 , 25 attribute_list, 1 write nodes
-   avail lists: 1:1,2:900,3:82,4:19,5:217,6:19,7:2497,8:59,9:942,10:13,11:258
- 33634 multiletter control sequences out of 65536+600000
+   avail lists: 1:1,2:900,3:82,4:19,5:217,6:18,7:2497,8:59,9:942,10:13,11:258
+ 33453 multiletter control sequences out of 65536+600000
  43 fonts using 3019647 bytes
  66i,12n,78p,685b,1434s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.o
@@ -806,7 +801,7 @@ pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pf
 b></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><
 /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></us
 r/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on predstavitev2.pdf (14 pages, 554249 bytes).
+Output written on predstavitev2.pdf (14 pages, 553760 bytes).
 
 PDF statistics: 98 PDF objects out of 1000 (max. 8388607)
  59 compressed objects within 1 object stream
