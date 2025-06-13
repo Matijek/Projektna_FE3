@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2025.2.26)  12 JUN 2025 19:29
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2025.2.26)  13 JUN 2025 20:03
  restricted system commands enabled.
 **predstavitev.tex
 (./predstavitev.tex
@@ -689,12 +689,12 @@ Package luatex.def Info: slike/voda.png  used on input line 51.
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}<./slike/e
 nantiomer.png><./slike/voda.png>] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 114--116
+Underfull \hbox (badness 10000) in paragraph at lines 113--115
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--116
+Underfull \hbox (badness 10000) in paragraph at lines 113--115
 
  []
 
@@ -702,13 +702,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 114--116
 <slike/med.png, id=33, 866.23625pt x 370.38374pt>
 File: slike/med.png Graphic file (type png)
 <use slike/med.png>
-Package luatex.def Info: slike/med.png  used on input line 286.
+Package luatex.def Info: slike/med.png  used on input line 285.
 (luatex.def)             Requested size: 390.0pt x 166.7559pt.
  [6]
 <slike/med2.png, id=39, 866.23625pt x 370.38374pt>
 File: slike/med2.png Graphic file (type png)
 <use slike/med2.png>
-Package luatex.def Info: slike/med2.png  used on input line 315.
+Package luatex.def Info: slike/med2.png  used on input line 314.
 (luatex.def)             Requested size: 390.0pt x 166.7559pt.
  [7<./slike/med.png><./slike/med2.png>] [8] (./predstavitev.aux)
  ***********
@@ -734,7 +734,7 @@ Here is how much of LuaTeX's memory you used:
  673 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 47 attribute, 64 glue_spec
 , 25 attribute_list, 1 write nodes
-   avail lists: 1:1,2:1066,3:106,4:22,5:322,6:24,7:5214,8:59,9:1251,10:15,11:584
+   avail lists: 1:1,2:1066,3:108,4:22,5:322,6:25,7:5210,8:59,9:1251,10:15,11:582
 
  33410 multiletter control sequences out of 65536+600000
  48 fonts using 3399903 bytes
@@ -753,7 +753,7 @@ r/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/lo
 cal/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
 l/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/t
 exlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on predstavitev.pdf (8 pages, 586826 bytes).
+Output written on predstavitev.pdf (8 pages, 586914 bytes).
 
 PDF statistics: 108 PDF objects out of 1000 (max. 8388607)
  65 compressed objects within 1 object stream
