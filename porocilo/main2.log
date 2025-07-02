@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2025.2.26)  2 JUL 2025 19:32
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2025.2.26)  2 JUL 2025 19:37
  restricted system commands enabled.
 **main2.tex
 (./main2.tex
@@ -2205,7 +2205,11 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 6.64998pt on input line 231.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 6.64998pt on input line 231.
- [1{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+
+LaTeX Warning: Reference `LastPage' on page 1 undefined on input line 231.
+
+[1{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 Missing character: There is no č (U+010D) in font phvb8t!
 Missing character: There is no č (U+010D) in font phvb8t!
 
@@ -2245,7 +2249,7 @@ Missing character: There is no č (U+010D) in font phvb8t!
 Missing character: There is no č (U+010D) in font t1-stix2text!
 Missing character: There is no č (U+010D) in font t1-stix2text-bold!
 ]
-<output.png, id=32, 570.933pt x 354.123pt>
+<output.png, id=29, 570.933pt x 354.123pt>
 File: output.png Graphic file (type png)
 <use output.png>
 Package luatex.def Info: output.png  used on input line 252.
@@ -2304,21 +2308,31 @@ enddocument/afterlastpage: lastpage setting LastPage.
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package lastpage Warning: Rerun to get the references right on input line 376.
+
 Package logreq Info: Writing requests to 'main2.run.xml'.
 
 \openout1 = main2.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 68580 strings out of 476447
- 156263,2848258 words of node,token memory allocated
+ 68584 strings out of 476447
+ 156265,2848258 words of node,token memory allocated
  1241 words of node memory still in use:
    11 hlist, 2 vlist, 2 rule, 1 local_par, 4 glue, 5 kern, 1 penalty, 7 glyph, 8
 0 attribute, 131 glue_spec, 42 attribute_list, 2 write, 6 pdf_colorstack nodes
-   avail lists: 1:6,2:2716,3:586,4:248,5:1381,6:142,7:12989,8:59,9:3131,10:19,11
+   avail lists: 1:8,2:2718,3:581,4:240,5:1381,6:141,7:12988,8:59,9:3129,10:19,11
 :789
- 89312 multiletter control sequences out of 65536+600000
- 161 fonts using 12057839 bytes
+ 89316 multiletter control sequences out of 65536+600000
+ 163 fonts using 12223279 bytes
  137i,12n,135p,1053b,1452s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/stix2-type1/stix2-ts1.enc}{/
 usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathscr.enc}
@@ -2333,10 +2347,10 @@ usr/local/texlive/2024/texmf-dist/fonts/type1/public/stix2-type1/STIX2Text-Regul
 ar.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><
 /usr/local/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/loc
 al/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main2.pdf (2 pages, 722687 bytes).
+Output written on main2.pdf (2 pages, 722869 bytes).
 
-PDF statistics: 105 PDF objects out of 1000 (max. 8388607)
- 91 compressed objects within 1 object stream
+PDF statistics: 103 PDF objects out of 1000 (max. 8388607)
+ 89 compressed objects within 1 object stream
  17 named destinations out of 1000 (max. 131072)
  80 words of extra memory for PDF output out of 10000 (max. 100000000)
 
