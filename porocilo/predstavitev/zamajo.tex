@@ -6,6 +6,8 @@
 \usepackage{booktabs}
 \usepackage{float}
 \usepackage{biblatex}
+\usepackage{listings}
+\usepackage{xcolor}
 
 
 \setlength{\parindent}{0pt}
@@ -38,5 +40,56 @@
 \section*{Uvod}
 
 glukoza : fruktoza = 36 : 41
+
+
+\begin{verbatim}
+    def drude(lambda_nm, k, A):
+    return (k * lambda_nm**2) / (lambda_nm**2 - A**2)
+
+
+# Prileganje z upoštevanjem napak v y (x napake ne vplivajo na fit)
+params, cov = curve_fit(drude, lambda_vals, alpha_vals, sigma=alpha_errs, absolute_sigma=True, p0=(1e4, 200))
+k_fit, A_fit = params
+k_err, A_err = np.sqrt(np.diag(cov))
+
+# Izpis rezultatov
+print("Ujemajoči parametri:")
+print(f"  k = {k_fit:.2f} ± {k_err:.2f}")
+print(f"  A = {A_fit:.2f} ± {A_err:.2f} nm")
+
+# Priprava za prikaz prileganja
+lambda_fit = np.linspace(450, 700, 300)
+alpha_fit = drude(lambda_fit, k_fit, A_fit)
+
+# Risanje grafa z error bar-i v obeh smereh
+plt.figure(figsize=(8, 5))
+
+plt.errorbar(
+    lambda_vals,
+    alpha_vals,
+    xerr=lambda_errs,
+    yerr=alpha_errs,
+    fmt='o',
+    markersize=6,
+    markerfacecolor='steelblue',
+    markeredgecolor='black',
+    ecolor='gray',
+    elinewidth=1,
+    capsize=4,
+    label='Izmerjeni podatki z napako'
+)
+
+# Prileganje funkcije
+plt.plot(lambda_fit, alpha_fit, color='cornflowerblue', linewidth=2.2, label='Drudejevo prileganje')
+
+# Oznake in estetika
+plt.xlabel('Valovna dolžina λ (nm)')
+plt.ylabel('Specifična rotacija [α](λ)')
+plt.title('Prileganje podatkov Drudejevi enačbi z napakami v x in y')
+plt.grid(True, linestyle='--', alpha=0.6)
+plt.legend()
+plt.tight_layout()
+plt.show()
+\end{verbatim}
 
 \end{document}
