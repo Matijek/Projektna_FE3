@@ -19,7 +19,7 @@
 \lstset{
     language=Python,                  % jezik programiranja
     basicstyle=\ttfamily\small,      % osnovni font za kodo
-    keywordstyle=\color{blue},       % barva za ključne besede
+    keywordstyle=\color{blue},       % barva za kljucne besede
     stringstyle=\color{red},         % barva za nize
     commentstyle=\color{green!50!black}\itshape, % komentarji
     numbers=left,                    % številke vrstic na levi
@@ -54,8 +54,8 @@
 }
 
 
-\title{Optična rotacija raztopine saharoze}
-\author{Matija Zanjkovič, Mesarec Tilen, Petauer Maja}
+\title{Opticna rotacija raztopine saharoze}
+\author{Matija Zanjkovic, Mesarec Tilen, Petauer Maja}
 \date{Junij 2025}
 
 \begin{document}
@@ -78,7 +78,7 @@ k_fit, A_fit = params
 k_err, A_err = np.sqrt(np.diag(cov))
 
 # Izpis rezultatov
-print("Ujemajoči parametri:")
+print("Ujemajoci parametri:")
 print(f"  k = {k_fit:.2f} ± {k_err:.2f}")
 print(f"  A = {A_fit:.2f} ± {A_err:.2f} nm")
 
@@ -108,13 +108,58 @@ plt.errorbar(
 plt.plot(lambda_fit, alpha_fit, color='cornflowerblue', linewidth=2.2, label='Drudejevo prileganje')
 
 # Oznake in estetika
-plt.xlabel('Valovna dolžina λ (nm)')
-plt.ylabel('Specifična rotacija [α](λ)')
-plt.title('Prileganje podatkov Drudejevi enačbi z napakami v x in y')
+plt.xlabel('Valovna dolžina \lambda (nm)')
+plt.ylabel('Specificna rotacija [\alpha](\lambda)')
+plt.title('Prileganje podatkov Drudejevi enacbi z napakami v x in y')
 plt.grid(True, linestyle='--', alpha=0.6)
 plt.legend()
 plt.tight_layout()
 plt.show()
+\end{lstlisting}
+
+
+\pagebreak
+
+\begin{lstlisting}
+from sympy import symbols, diff, simplify
+
+# Define symbols
+k, A, lam = symbols('k A lam')
+
+# Define the function
+alpha = k * lam**2 / (lam**2 - A**2)
+
+# Partial derivatives
+d_alpha_dk = simplify(diff(alpha, k))
+d_alpha_dA = simplify(diff(alpha, A))
+d_alpha_dlam = simplify(diff(alpha, lam))
+
+print("\parcdelta[\alpha]/\parcdeltak =", d_alpha_dk)
+print("\parcdelta[\alpha]/\parcdeltaA =", d_alpha_dA)
+print("\parcdelta[\alpha]/\parcdelta\lambda =", d_alpha_dlam)
+\end{lstlisting}
+
+\begin{lstlisting}
+from sympy import lambdify
+
+# Izracun specificne rotacije in njene napake za modri laser (npr. \lambda = 450 nm)
+lambda_blue = 450  # nm
+
+# Uporabi Drudejev model in napake parametrov
+alpha_blue = (k_fit * lambda_blue**2) / (lambda_blue**2 - A_fit**2)
+
+# Delni odvodi po k in A (že definirani: d_alpha_dk, d_alpha_dA)
+
+d_alpha_dk_func = lambdify((k, A, lam), d_alpha_dk)
+d_alpha_dA_func = lambdify((k, A, lam), d_alpha_dA)
+
+d_alpha_dk_val = d_alpha_dk_func(k_fit, A_fit, lambda_blue)
+d_alpha_dA_val = d_alpha_dA_func(k_fit, A_fit, lambda_blue)
+
+# Skupna napaka (priblizek, zanemarimo korelacijo)
+delta_alpha_blue = abs(d_alpha_dk_val) * k_err + abs(d_alpha_dA_val) * A_err
+
+print(f"[\alpha](450 nm) = {alpha_blue:.2f} ± {delta_alpha_blue:.2f}")
 \end{lstlisting}
 
 \end{document}
