@@ -5,7 +5,6 @@
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{float}
-\usepackage{biblatex} %Imports biblatex package
 \usepackage[backend=biber,style=numeric]{biblatex} % or any style you prefer
 \usepackage{hyperref}
 
@@ -223,6 +222,74 @@ $c$ [g/mL] & $\alpha_r$ [°] & $\alpha_z$ [°]  & $\Delta \alpha$ [°] & $\sigma
 \end{minipage}
 
 
+%----------------------------------------------------------
+\section{Izračun specifične rotacije - novo popravljeno}
+
+Specifična rotacija $[\alpha]$ za vsako meritev:
+\[
+[\alpha] = \frac{\alpha}{c \cdot L}
+\]
+
+\begin{minipage}{0.24\textwidth}
+\textbf{Rdeča:}
+\begin{align*}
+[\alpha]_{c=0.030} &= 64 \ (1 \pm 0{,}19) \ \frac{^\circ \cdot \mathrm{mL}}{\mathrm{g} \cdot \mathrm{dm}}\\
+[\alpha]_{c=0.050} &= 59 \ (1 \pm 0{,}14) \ \frac{^\circ \cdot \mathrm{mL}}{\mathrm{g} \cdot \mathrm{dm}}\\
+[\alpha]_{c=0.070} &= 58 \ (1 \pm 0{,}12) \ \frac{^\circ \cdot \mathrm{mL}}{\mathrm{g} \cdot \mathrm{dm}}\\
+[\alpha]_{c=0.090} &= 61 \ (1 \pm 0{,}11) \ \frac{^\circ \cdot \mathrm{mL}}{\mathrm{g} \cdot \mathrm{dm}}\\
+[\alpha]_{c=0.100} &= 60 \ (1 \pm 0{,}10) \ \frac{^\circ \cdot \mathrm{mL}}{\mathrm{g} \cdot \mathrm{dm}}\\
+\end{align*}
+\end{minipage}
+\hfill
+\begin{minipage}{0.24\textwidth}
+
+\begin{align*}
+[\alpha]_{c=0.030} &= (64 \pm 12) \ \frac{^\circ \cdot \mathrm{mL}}{\mathrm{g} \cdot \mathrm{dm}}\\
+[\alpha]_{c=0.050} &= (59 \pm 8) \ \frac{^\circ \cdot \mathrm{mL}}{\mathrm{g} \cdot \mathrm{dm}}\\
+[\alpha]_{c=0.070} &= (58 \pm 7) \ \frac{^\circ \cdot \mathrm{mL}}{\mathrm{g} \cdot \mathrm{dm}}\\
+[\alpha]_{c=0.090} &= (61 \pm 7) \ \frac{^\circ \cdot \mathrm{mL}}{\mathrm{g} \cdot \mathrm{dm}}\\
+[\alpha]_{c=0.100} &= (60 \pm 6) \ \frac{^\circ \cdot \mathrm{mL}}{\mathrm{g} \cdot \mathrm{dm}}\\
+\end{align*}
+\end{minipage}
+
+\[
+\overline{[\alpha]_{r}}  = (60 \ \pm \ 9)  \frac{^\circ \cdot \mathrm{mL}}{\mathrm{g} \cdot \mathrm{dm}}
+\]
+\[
+\overline{[\alpha]_{r}} = 60 \ (1 \pm 0{,}15) \ \frac{^\circ \cdot \mathrm{mL}}{\mathrm{g} \cdot \mathrm{dm}}
+\]
+
+\vspace{1em}
+
+\begin{minipage}{0.24\textwidth}
+\textbf{Zelena:}
+\begin{align*}
+[\alpha]_{c=0.030} &= (67 \pm 12) \ \frac{^\circ \cdot \mathrm{mL}}{\mathrm{g} \cdot \mathrm{dm}}\\
+[\alpha]_{c=0.050} &= (64 \pm 9) \ \frac{^\circ \cdot \mathrm{mL}}{\mathrm{g} \cdot \mathrm{dm}}\\
+[\alpha]_{c=0.070} &= (66 \pm 8) \ \frac{^\circ \cdot \mathrm{mL}}{\mathrm{g} \cdot \mathrm{dm}}\\
+[\alpha]_{c=0.090} &= (61 \pm 7) \ \frac{^\circ \cdot \mathrm{mL}}{\mathrm{g} \cdot \mathrm{dm}}\\
+[\alpha]_{c=0.100} &= (61 \pm 6) \ \frac{^\circ \cdot \mathrm{mL}}{\mathrm{g} \cdot \mathrm{dm}}\\
+\end{align*}
+\end{minipage}
+\hfill
+\begin{minipage}{0.24\textwidth}
+\begin{align*}
+[\alpha]_{c=0.030} &= 67 \ (1 \pm 0{,}18) \ \frac{^\circ \cdot \mathrm{mL}}{\mathrm{g} \cdot \mathrm{dm}}\\
+[\alpha]_{c=0.050} &= 64 \ (1 \pm 0{,}14) \ \frac{^\circ \cdot \mathrm{mL}}{\mathrm{g} \cdot \mathrm{dm}}\\
+[\alpha]_{c=0.070} &= 66 \ (1 \pm 0{,}12) \ \frac{^\circ \cdot \mathrm{mL}}{\mathrm{g} \cdot \mathrm{dm}}\\
+[\alpha]_{c=0.090} &= 61 \ (1 \pm 0{,}11) \ \frac{^\circ \cdot \mathrm{mL}}{\mathrm{g} \cdot \mathrm{dm}}\\
+[\alpha]_{c=0.100} &= 61 \ (1 \pm 0{,}10) \ \frac{^\circ \cdot \mathrm{mL}}{\mathrm{g} \cdot \mathrm{dm}}\\
+\end{align*}
+\end{minipage}
+
+\[
+\overline{[\alpha]_{z}} = (64 \ \pm \ 10) \frac{^\circ \cdot \mathrm{mL}}{\mathrm{g} \cdot \mathrm{dm}}
+\]
+\[
+\overline{[\alpha]_{z}} = 64 \ (1 \pm 0{,}16) \ \frac{^\circ \cdot \mathrm{mL}}{\mathrm{g} \cdot \mathrm{dm}}
+\]
+
+
 \section*{Povprečna specifična rotacija}
 
 Za rdečo svetlobo:
@@ -321,14 +388,22 @@ Vendar vseeno sumimo, da je temu tako, saj je med$_1$ kristaliziral med tem ko m
 
 
 
-    \begin{thebibliography}{9}
-        \bibitem{gerginova2022optical}
-        D. Gerginova, V. Kurteva, S. Simova,
-        \textit{Optical Rotation—A Reliable Parameter for Authentication of Honey?},
-        Molecules, 27(24), 8916, 2022.
+  \begin{thebibliography}{9}
 
-        \bibitem{advanced_organic_chemistry}
-        Advanced Organic Chemistry Part A: Structure and Mechanisms Part B: Reactions and Synthesis, Chemistry International, vol. 24, no. 5, pp. 28–29, Sep. 2002, doi: 10.1515/ci.2002.24.5.28b.
-    \end{thebibliography}
+    \bibitem{gerginova2022optical}
+    D. Gerginova, V. Kurteva, S. Simova,
+    \textit{Optical Rotation—A Reliable Parameter for Authentication of Honey?},
+    Molecules, 27(24), 8916, 2022.
+
+    \bibitem{advanced_organic_chemistry}
+    Advanced Organic Chemistry Part A: Structure and Mechanisms Part B: Reactions and Synthesis, Chemistry International, vol. 24, no. 5, pp. 28–29, Sep. 2002, doi: 10.1515/ci.2002.24.5.28b.
+
+    \bibitem{lei2018optimized}
+    Y. Lei, H. Jia, X. Xu, and S. Jiang,
+    "An Optimized Drude's Equation For Polarization Measurement in the Visible Region and Concentrations Estimation,"
+    \textit{IEEE Photonics Journal}, vol. 10, no. 1, pp. 1–9, Feb. 2018, Art no. 6100209,
+    doi: 10.1109/JPHOT.2017.2787576.
+
+\end{thebibliography}
 
 \end{document}
