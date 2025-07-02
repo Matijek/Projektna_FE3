@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2025.2.26)  2 JUL 2025 19:47
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2025.2.26)  2 JUL 2025 19:49
  restricted system commands enabled.
 **main2.tex
 (./main2.tex
@@ -2333,7 +2333,7 @@ usr/local/texlive/2024/texmf-dist/fonts/type1/public/stix2-type1/STIX2Text-Regul
 ar.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb><
 /usr/local/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/loc
 al/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on main2.pdf (2 pages, 722689 bytes).
+Output written on main2.pdf (2 pages, 722684 bytes).
 
 PDF statistics: 105 PDF objects out of 1000 (max. 8388607)
  91 compressed objects within 1 object stream
