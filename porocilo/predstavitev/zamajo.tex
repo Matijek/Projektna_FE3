@@ -1,4 +1,4 @@
-\documentclass[12pt]{extarticle} 
+\documentclass[9pt]{extarticle} 
 \usepackage[utf8]{inputenc}
 \usepackage[slovene]{babel}
 \usepackage{amsmath}
@@ -8,6 +8,30 @@
 \usepackage{biblatex}
 \usepackage{listings}
 \usepackage{xcolor}
+
+\usepackage[a4paper,
+    top=1.5cm,
+    bottom=1.5cm,
+    left=1.5cm,
+    right=1.5cm
+]{geometry}
+
+\lstset{
+    language=Python,                  % jezik programiranja
+    basicstyle=\ttfamily\small,      % osnovni font za kodo
+    keywordstyle=\color{blue},       % barva za ključne besede
+    stringstyle=\color{red},         % barva za nize
+    commentstyle=\color{green!50!black}\itshape, % komentarji
+    numbers=left,                    % številke vrstic na levi
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=5pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    tabsize=4,
+    captionpos=b
+}
 
 
 \setlength{\parindent}{0pt}
@@ -41,10 +65,11 @@
 
 glukoza : fruktoza = 36 : 41
 
+\pagebreak
 
-\begin{verbatim}
-    def drude(lambda_nm, k, A):
-    return (k * lambda_nm**2) / (lambda_nm**2 - A**2)
+\begin{lstlisting}
+def drude(lambda_nm, k, A):
+return (k * lambda_nm**2) / (lambda_nm**2 - A**2)
 
 
 # Prileganje z upoštevanjem napak v y (x napake ne vplivajo na fit)
@@ -90,6 +115,6 @@ plt.grid(True, linestyle='--', alpha=0.6)
 plt.legend()
 plt.tight_layout()
 plt.show()
-\end{verbatim}
+\end{lstlisting}
 
 \end{document}
