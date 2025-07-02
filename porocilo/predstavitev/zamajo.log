@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2025.2.26)  2 JUL 2025 19:00
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2025.2.26)  2 JUL 2025 19:01
  restricted system commands enabled.
 **zamajo.tex
 (./zamajo.tex
@@ -42,8 +42,8 @@ Inserting `luaotfload.rewrite_fontname' in `luaotfload.patch_font'.
 Inserting `tracingstacklevels' in `input_level_string'. (/usr/local/texlive/202
 4/texmf-dist/tex/latex/extsizes/extarticle.cls
 Document Class: extarticle 1996/10/08 v1.0 Non Standard LaTeX document class
-(/usr/local/texlive/2024/texmf-dist/tex/latex/extsizes/size20.clo
-File: size20.clo 1999/11/11 NON-Standard LaTeX file (size option)
+(/usr/local/texlive/2024/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 luaotfload | db : Font names database loaded from /Users/matijazanjkovic/Library
 /texlive/2024/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz)
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/exscale.sty
@@ -712,47 +712,31 @@ Package biblatex Info: Reference section=0 on input line 37.
 Package biblatex Info: Reference segment=0 on input line 37.
 \c@lstlisting=\count422
 
-Overfull \hbox (15.39676pt too wide) in paragraph at lines 38--38
- [][] 
+Overfull \hbox (24.05951pt too wide) in paragraph at lines 93--93
+[]\TU/lmtt/m/n/12 # Prileganje z upoštevanjem napak v y (x napake ne vplivajo 
+na fit)[] 
  []
 
 
-Overfull \hbox (97.09865pt too wide) in paragraph at lines 93--93
-[]    \TU/lmtt/m/n/20.74 return (k * lambda_nm**2) / (lambda_nm**2 - A**2)[] 
- []
-
-
-Overfull \hbox (246.63414pt too wide) in paragraph at lines 93--93
-[]\TU/lmtt/m/n/20.74 # Prileganje z upoštevanjem napak v y (x napake ne vplivaj
-o na fit)[] 
- []
-
-
-Overfull \hbox (695.24062pt too wide) in paragraph at lines 93--93
-[]\TU/lmtt/m/n/20.74 params, cov = curve_fit(drude, lambda_vals, alpha_vals, sig
-ma=alpha_errs, absolute_sigma=True, p0=(1e4, 200))[] 
+Overfull \hbox (283.6192pt too wide) in paragraph at lines 93--93
+[]\TU/lmtt/m/n/12 params, cov = curve_fit(drude, lambda_vals, alpha_vals, sigma=
+alpha_errs, absolute_sigma=True, p0=(1e4, 200))[] 
  []
 
 [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (0.96869pt too wide) in paragraph at lines 93--93
-[]\TU/lmtt/m/n/20.74 print(f"  A = {A_fit:.2f} ± {A_err:.2f} nm")[] 
- []
-
-[2]
-Overfull \hbox (599.11066pt too wide) in paragraph at lines 93--93
-[]\TU/lmtt/m/n/20.74 plt.plot(lambda_fit, alpha_fit, color='cornflowerblue', lin
-ewidth=2.2, label='Drudejevo prileganje')[] 
+Overfull \hbox (227.99927pt too wide) in paragraph at lines 93--93
+[]\TU/lmtt/m/n/12 plt.plot(lambda_fit, alpha_fit, color='cornflowerblue', linewi
+dth=2.2, label='Drudejevo prileganje')[] 
  []
 
 
-Overfull \hbox (267.99635pt too wide) in paragraph at lines 93--93
-[]\TU/lmtt/m/n/20.74 plt.title('Prileganje podatkov Drudejevi enačbi z napakami
- v x in y')[] 
+Overfull \hbox (36.4195pt too wide) in paragraph at lines 93--93
+[]\TU/lmtt/m/n/12 plt.title('Prileganje podatkov Drudejevi enačbi z napakami v x in y')[] 
  []
 
-[3
+[2
 Missing character: There is no λ (U+03BB) in font [lmmono12-regular]:!
 Missing character: There is no α (U+03B1) in font [lmmono12-regular]:!
 Missing character: There is no λ (U+03BB) in font [lmmono12-regular]:!
@@ -767,23 +751,24 @@ Package logreq Info: Writing requests to 'zamajo.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 13288 strings out of 476447
+ 13290 strings out of 476447
  125161,1977958 words of node,token memory allocated
  578 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 4 glue, 4 kern, 1 glyph, 12 attribute, 63 glue_spec
 , 8 attribute_list, 1 write nodes
-   avail lists: 2:242,3:236,4:18,5:84,6:45,7:1416,8:1,9:155,10:4,11:36
- 35171 multiletter control sequences out of 65536+600000
+   avail lists: 2:372,3:294,4:18,5:96,6:57,7:1998,8:1,9:195,10:4,11:38
+ 35173 multiletter control sequences out of 65536+600000
  32 fonts using 2121911 bytes
  66i,6n,78p,678b,1428s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmmono12-regular.ot
 f></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.ot
-f></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman17-regular
-.otf>
-Output written on zamajo.pdf (3 pages, 16870 bytes).
+f></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman12-regular
+.otf></usr/local/texlive/2024/texmf-dist/fonts/opentype/public/lm/lmroman17-regu
+lar.otf>
+Output written on zamajo.pdf (2 pages, 19102 bytes).
 
-PDF statistics: 35 PDF objects out of 1000 (max. 8388607)
- 20 compressed objects within 1 object stream
+PDF statistics: 39 PDF objects out of 1000 (max. 8388607)
+ 22 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
