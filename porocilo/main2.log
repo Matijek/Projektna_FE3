@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.26)  2 JUL 2025 19:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.26)  2 JUL 2025 20:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2067,16 +2067,20 @@ enddocument/afterlastpage: lastpage setting LastPage.
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package logreq Info: Writing requests to 'main2.run.xml'.
 \openout1 = `main2.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 67703 strings out of 474116
- 1478232 string characters out of 5743682
- 2633201 words of memory out of 5000000
- 89005 multiletter control sequences out of 15000+600000
- 763713 words of font info for 278 fonts, out of 8000000 for 9000
+ 67700 strings out of 474116
+ 1478207 string characters out of 5743682
+ 2632197 words of memory out of 5000000
+ 89006 multiletter control sequences out of 15000+600000
+ 763539 words of font info for 275 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  137i,12n,143p,1054b,1451s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/stix2-type1/STIX2Math.
@@ -2087,10 +2091,10 @@ TIX2Text-Italic.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/stix
 rw/helvetic/uhvb8a.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/helv
 etic/uhvr8a.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uh
 vro8a.pfb>
-Output written on main2.pdf (2 pages, 730402 bytes).
+Output written on main2.pdf (2 pages, 730794 bytes).
 PDF statistics:
- 117 PDF objects out of 1000 (max. 8388607)
- 93 compressed objects within 1 object stream
- 17 named destinations out of 1000 (max. 500000)
- 84050 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 121 PDF objects out of 1000 (max. 8388607)
+ 97 compressed objects within 1 object stream
+ 18 named destinations out of 1000 (max. 500000)
+ 84058 words of extra memory for PDF output out of 89155 (max. 10000000)
 
