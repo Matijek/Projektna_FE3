@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.26)  2 JUL 2025 18:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.2.26)  2 JUL 2025 18:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2055,15 +2055,12 @@ File: output.png Graphic file (type png)
 <use output.png>
 Package pdftex.def Info: output.png  used on input line 252.
 (pdftex.def)             Requested size: 230.11763pt x 142.73277pt.
-
-
-LaTeX Warning: Empty bibliography on input line 358.
-
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 360.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 376.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 6.64998pt on input line 360.
-[2 <./output.png>] 
+(Font)              scaled to size 6.64998pt on input line 376.
+ [2 <./output.png>]
+
 enddocument/afterlastpage: lastpage setting LastPage.
 (./main2.aux)
  ***********
@@ -2075,11 +2072,11 @@ Package logreq Info: Writing requests to 'main2.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 67683 strings out of 474116
- 1477839 string characters out of 5743682
- 2632119 words of memory out of 5000000
- 88992 multiletter control sequences out of 15000+600000
- 763345 words of font info for 276 fonts, out of 8000000 for 9000
+ 67703 strings out of 474116
+ 1478232 string characters out of 5743682
+ 2633201 words of memory out of 5000000
+ 89005 multiletter control sequences out of 15000+600000
+ 763713 words of font info for 278 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  137i,12n,143p,1054b,1451s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/stix2-type1/STIX2Math.
@@ -2090,10 +2087,10 @@ TIX2Text-Italic.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/stix
 rw/helvetic/uhvb8a.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/helv
 etic/uhvr8a.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/urw/helvetic/uh
 vro8a.pfb>
-Output written on main2.pdf (2 pages, 721929 bytes).
+Output written on main2.pdf (2 pages, 730408 bytes).
 PDF statistics:
- 114 PDF objects out of 1000 (max. 8388607)
- 90 compressed objects within 1 object stream
- 14 named destinations out of 1000 (max. 500000)
+ 117 PDF objects out of 1000 (max. 8388607)
+ 93 compressed objects within 1 object stream
+ 17 named destinations out of 1000 (max. 500000)
  84050 words of extra memory for PDF output out of 89155 (max. 10000000)
 
